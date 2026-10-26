@@ -1,4 +1,4 @@
-# Buck Command V4 — Guardian Edition
+# Buck Command V5 — Guardian Edition
 
 Free, phone-friendly hunting field companion. Open the published GitHub Pages link to launch the app. The README appears on the GitHub *repository* page, not in the app on GitHub Pages.
 
@@ -80,3 +80,18 @@ Supported manual camera registry brands: **Tactacam REVEAL, Moultrie, Bushnell**
 ### Upload
 
 Upload `index.html` and `README.md` to the root of the existing Buck-Commander GitHub repository and commit. The GitHub Pages URL remains unchanged.
+
+## V5 Field Conditions Visibility Fix
+- The **Weather Conditions** and **Wind Direction** fields are now highlighted as distinct boxes in Field Conditions, alongside the original tiles. The wind direction indicates where wind comes **from**.
+- The **View Future Forecast (7-Day)** link opens a location-specific web search in a new tab; it is not an in-app forecast.
+- Choose a location or enable GPS before interpreting the weather tiles. Requires internet. Everything else, including Camera Command, remains unchanged.
+- If you still see the old version after publishing, reload the page (Ctrl+Shift+R on desktop) or reopen it on the phone.
+
+
+## V5 Navigation Update
+- The home page now displays **V5 — Guardian Edition** prominently in the heading, field-test badge and footer.
+- A **Camera Command** shortcut near the top jumps directly to the existing Trail Camera Command Center.
+- A **Compass & Trail Tracker** shortcut also offers quick access to field navigation tools.
+- A floating **Back to Top** link returns to the top on phones and computers.
+- No camera, weather, GPS, journal, SOS, or local storage behavior was intentionally changed by this navigation-only update.
+- After replacing `index.html` and `README.md` in GitHub, use the same GitHub Pages link and refresh.
