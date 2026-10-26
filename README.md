@@ -50,3 +50,17 @@ No account, payment provider, or database is included. Keep the Pages link and b
 ### Publishing an update without losing local data
 
 Replace `index.html` in your existing GitHub Pages repository and update `README.md`; keep the same Pages URL and browser profile. V4 stores trails under its own `buck_command_field_v4` local storage key, separate from existing V3 hunting data. Browser data clearing or switching phones still loses locally saved tracks unless they were exported.
+
+
+## Field Testing — V4 Test Release
+
+The app displays a Field Testing notice and an optional feedback form. Testers can share their suggestions through the phone's native Share menu or copy text to send manually to James Meadows. **No feedback is automatically sent, emailed, collected or stored on a server.** This is not a monitoring tool or tester registration system.
+
+Suggested test checklist: opening on iPhone/Android, GPS permission, manual place search, weather and map, compass if supported, trail start/pause/finish, saving truck location, GPX export, journal and SOS instructions. Test navigation and GPS in safe conditions; never rely solely on the app for emergency help.
+
+### Install or add to a phone
+- **iPhone:** Open the **published GitHub Pages website in Safari**, tap Share, select **Add to Home Screen**, then Add.
+- **Android:** Open the **published GitHub Pages website in Chrome**, open the menu (three dots), select **Add to Home screen** or **Install app** if available, and confirm.
+- Both platforms can also use the website directly without installing it. GPS requires user permission and HTTPS. Home-screen shortcut behavior and offline support vary by browser.
+
+This field-test release does not enable any club tracking, subscriptions or automated alerts. Existing V4 browser storage keys and features are unchanged.
