@@ -1,4 +1,21 @@
-# Buck Command V7 — Guardian Edition
+# Buck Command V8 — Guardian Edition
+Designed by James Meadows. Field-test release.
+
+## V8 — Club Safety Map (local preview ONLY)
+
+- Shortcut near the top opens the **Club Safety Map**.
+- Enter your name, club, stand, and expected return; tap **Start my check-in** or **End check-in**.
+- Optional phone GPS displays your own last reported position on a map; check its timestamp and accuracy.
+- **Share hunt plan** sends or copies a one-time text to someone you choose. This is manual sharing, not live tracking or an automatic alert.
+- This preview stores the check-in only in **this browser**. The president and other hunters CANNOT see it, and no club-wide occupancy status is available. **Other hunters may be present even if no one is shown.**
+- Future club-wide tracking requires a secure hosted database, individual authenticated member accounts, opt-in location sharing, verified role permissions, session expiration, and honest stale-location indicators. Even then, phone browsers may stop background GPS.
+- Do not depend on this tool for emergency rescue, safety clearance, or establishing who is on a property. Arrange direct check-ins and use proper emergency communications.
+
+## All prior features
+
+The V7 Property Intelligence, feeder history, hunting map, weather, camera registry, trail tracker, compass, emergency information, and journal are retained. Local records remain on each device. We do not operate subscriptions or automatic live club tracking in V8.
+
+## Earlier V7 features
 
 Designed by James Meadows. Free field-testing edition.
 
