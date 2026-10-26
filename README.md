@@ -1,97 +1,32 @@
-# Buck Command V5 — Guardian Edition
+# Buck Command V6 — Guardian Edition
 
-Free, phone-friendly hunting field companion. Open the published GitHub Pages link to launch the app. The README appears on the GitHub *repository* page, not in the app on GitHub Pages.
+Designed by James Meadows. Free field-testing edition.
 
-## Working features in V3
-- Hunting map (Esri topographic tiles), GPS/manual place lookup, local saved stands/cameras/feeders and saved locations
-- Live weather/wind and sunrise/sunset from online services; official-regulation web search links
-- Personal hunting journal; original V1 JSON backup and restore for its spots, places, journal
-- Emergency page: get **current phone GPS** (separate from searched places), view/copy coordinates and prepared distress text, open phone dialer (`tel:911`) or SMS (`sms:911`) where supported, speak distress text on compatible devices, search nearby help
-- Guardian Hunt Plan: save details locally, attach phone GPS when permission granted, manually share/copy plan
-- Hazard markers: save local GPS/coordinate hazards and open them in a map
-- Hunting Club Finder: manual area or phone GPS opens online Maps search; directories; save favorite clubs on this device
-- Club Pro feature preview / explanation
+## V6 — Land & Feeder Management
 
-## NOT ACTIVE OR GUARANTEED
-- No automatic alert to 911, contacts or hunting clubs; no reliable prerecorded message inside a 911 call. Call button only opens phone dialer.
-- No server-backed hunt check-in timer or overdue alerts, automatic fall detection, breadcrumb recording, or offline maps.
-- No real-time club member map, stand reservation sync, member accounts, invitations, location sharing, or admin dashboard. They require a secure database, consent/permissions, and additional development.
-- No enforceable 7-day trial, billing or yearly subscription. Free vs Club Pro descriptions are a preview, **not** a live paid membership system.
-- No verified live database of hunting clubs, vacancies, dues, or memberships. Directory searches show third-party listings.
-- CB channel 9 is a US emergency/traveler-assistance channel, **not guaranteed to be monitored**; public safety agencies use other systems.
+- Main hunting map has **Terrain/Topographic**, **Satellite**, and **Hybrid** views. Select using **Map view** above the map; selection is remembered in this browser.
+- Imagery may be old; it cannot verify exact boundaries, vegetation, or whether a grass patch is still present.
+- Add a **Feeder** using the existing hunting map Add spot dialog; then open **Feeder Management** to log fill date, amount (pounds), feed type, capacity, person filling, battery/maintenance notes, and days until the next check.
+- Each feeder has refill history and next-check dates plus a count of due feeders. The due date is based on the entered check interval, not a measured feed level.
+- Export feeder records separately as JSON. The original Buck Command personal-data backup does **not** currently include V6 feeder records.
+- Records remain on this browser/device. No club-wide sync and no automatic refill push notification yet. Save your exports before changing phones or clearing browser data.
 
-## Safety
-**Do not rely on this app as your sole rescue method.** Call local emergency services in an emergency. GPS may be wrong or unavailable. Phone GPS is not the same as a manually searched map location. Text-to-911 is not universally supported; sending an SMS shortcut does not prove dispatch has received it. Speech synthesis plays through the device, not reliably into a phone call. Map, weather, lookup, and club search generally require internet. This is not satellite SOS.
+## Existing tools
 
-## Storage and privacy
-All saved spots, journal entries, hunting places, Hunt Plans, hazard markers and club favorites remain in *this browser on this device* via browser storage. Clearing data or switching devices may remove them. The original Backup button exports ONLY original spots, places, journal—not new V3 Hunt Plan/hazards/favorite clubs. Location is requested only when user presses a GPS button; other services see necessary search/map requests. Don't share private property markers or medical information publicly.
+All existing V5 hunting map, weather and wind, forecast link, safety/SOS, Guardian tools, hunting journal, compass, trail tracking, and Camera Command functionality are retained. Club live tracking, secure club subscriptions and real-time cellular-camera integrations are not yet active.
 
-## Publishing to GitHub Pages
-1. Extract this ZIP and upload `index.html` and `README.md` to the **root** of your existing GitHub repository. Replace the old `index.html` file without changing its name.
-2. In repo Settings → Pages → Build and deployment, choose Deploy from a branch, `main` and `/(root)` and Save.
-3. Open the Pages website link supplied by GitHub. Share **that** link, not the repository link. On iPhone use Safari → Share → Add to Home Screen.
-4. Use HTTPS for geolocation (GitHub Pages serves HTTPS). Allow location permission when desired. Hard-refresh after updating.
+## Publish / update on GitHub Pages
 
-No account, payment provider, or database is included. Keep the Pages link and browser storage consistent to preserve local records.
+1. Extract this ZIP.
+2. In your GitHub repository upload/replace `index.html` and `README.md` at repository root on the `main` branch. Commit changes.
+3. Your same GitHub Pages link will serve V6 after deployment. If needed, hard-refresh the browser.
 
+## Add app to your phone
 
-## V4: Guardian Compass, Trail Tracker and area records
+- **iPhone**: Open the GitHub Pages site in Safari → Share → Add to Home Screen → Add.
+- **Android**: Open the site in Chrome → three-dot menu → Add to Home screen (or Install app, when available).
+- Both devices need internet for new map tiles and weather. GPS and compass require permission and supported sensors. Phone/browser background restrictions may interrupt location tracking.
 
-- **Trail Tracker:** Start, pause/resume, finish, and save a GPS path while the page is open and active. GPS accuracy filtering helps reject very poor fixes. Export tracks as GPX for backup. Tracks and markers are saved only in the device/browser that recorded them.
-- **Save Truck / Mark Point:** Use a recent phone GPS fix to save the truck or a point along the trail; target selection shows a true-north bearing and straight-line distance. This is **not** a turn-by-turn route or a guarantee of a safe path.
-- **Guardian Compass:** On supported devices, with user-granted sensor permissions, displays a compass heading. Sensor support varies; iOS may need explicit authorization and some phones will show no heading. The bearing to a marker can still work with GPS without the compass sensor.
-- **Area Hunting Records:** Search recognizable record-keeping organizations by selected region and species. These are third-party search links, **not** confirmed records, local ranking data, or live results inside the app.
-- **Credit:** Designed by James Meadows.
+## Important safety and licensing notes
 
-### Important V4 limitations
-
-**Browser GPS tracking is not reliable while backgrounded or the phone is locked.** Keep the app in the foreground and screen awake. GPS may drift or fail in thick woods. Verify position before depending on a trail; always bring a real navigation backup. Internet is needed for the map tiles; exporting GPX works offline once the page is loaded. Do not depend on a web app to summon emergency services. No live club tracking or enforceable subscription/trial is enabled in this build.
-
-### Publishing an update without losing local data
-
-Replace `index.html` in your existing GitHub Pages repository and update `README.md`; keep the same Pages URL and browser profile. V4 stores trails under its own `buck_command_field_v4` local storage key, separate from existing V3 hunting data. Browser data clearing or switching phones still loses locally saved tracks unless they were exported.
-
-
-## Field Testing — V4 Test Release
-
-The app displays a Field Testing notice and an optional feedback form. Testers can share their suggestions through the phone's native Share menu or copy text to send manually to James Meadows. **No feedback is automatically sent, emailed, collected or stored on a server.** This is not a monitoring tool or tester registration system.
-
-Suggested test checklist: opening on iPhone/Android, GPS permission, manual place search, weather and map, compass if supported, trail start/pause/finish, saving truck location, GPX export, journal and SOS instructions. Test navigation and GPS in safe conditions; never rely solely on the app for emergency help.
-
-### Install or add to a phone
-- **iPhone:** Open the **published GitHub Pages website in Safari**, tap Share, select **Add to Home Screen**, then Add.
-- **Android:** Open the **published GitHub Pages website in Chrome**, open the menu (three dots), select **Add to Home screen** or **Install app** if available, and confirm.
-- Both platforms can also use the website directly without installing it. GPS requires user permission and HTTPS. Home-screen shortcut behavior and offline support vary by browser.
-
-This field-test release does not enable any club tracking, subscriptions or automated alerts. Existing V4 browser storage keys and features are unchanged.
-
-## V4 Field Weather Update
-- Field Conditions now has matching tiles for **wind direction** (compass bearing and degrees) and **current weather conditions** (clear, rain, cloudy, fog, snow, etc.). Data comes from Open-Meteo for the selected hunting location, not necessarily the phone’s current GPS location.
-- **View full forecast** opens a separate web search for the selected location. A network connection is required. Weather is informational and not a substitute for local alerts.
-- The rest of the original app, field testing panel, saved information and features are unchanged.
-
-
-## V5 — Trail Camera Command Center (field test)
-
-Supported manual camera registry brands: **Tactacam REVEAL, Moultrie, Bushnell**. Register names, models, GPS coordinates, battery/maintenance notes, and camera observations. View map pins, open directions and manufacturer websites, and import JPEG/PNG/WebP photos smaller than 12 MB. Photos are stored locally in the browser's IndexedDB where supported.
-
-**This does not connect to cellular camera accounts or pull live images, signal or battery status.** Do not enter camera account credentials. Camera lists are exported/imported as JSON; **images are not part of the JSON backup**. Download and preserve photo originals independently. Clearing browser data may erase records. No shared club database or automatic syncing is enabled.
-
-### Upload
-
-Upload `index.html` and `README.md` to the root of the existing Buck-Commander GitHub repository and commit. The GitHub Pages URL remains unchanged.
-
-## V5 Field Conditions Visibility Fix
-- The **Weather Conditions** and **Wind Direction** fields are now highlighted as distinct boxes in Field Conditions, alongside the original tiles. The wind direction indicates where wind comes **from**.
-- The **View Future Forecast (7-Day)** link opens a location-specific web search in a new tab; it is not an in-app forecast.
-- Choose a location or enable GPS before interpreting the weather tiles. Requires internet. Everything else, including Camera Command, remains unchanged.
-- If you still see the old version after publishing, reload the page (Ctrl+Shift+R on desktop) or reopen it on the phone.
-
-
-## V5 Navigation Update
-- The home page now displays **V5 — Guardian Edition** prominently in the heading, field-test badge and footer.
-- A **Camera Command** shortcut near the top jumps directly to the existing Trail Camera Command Center.
-- A **Compass & Trail Tracker** shortcut also offers quick access to field navigation tools.
-- A floating **Back to Top** link returns to the top on phones and computers.
-- No camera, weather, GPS, journal, SOS, or local storage behavior was intentionally changed by this navigation-only update.
-- After replacing `index.html` and `README.md` in GitHub, use the same GitHub Pages link and refresh.
+A web app is not a replacement for emergency communications, reliable background GPS, or official hunting rules. Call emergency services through approved methods. The satellite and map services shown here are provided by Esri and partners and carry terms, attribution, availability and potential commercial restrictions. Evaluate a properly licensed commercial imagery provider **before charging** for a map-based club plan.
