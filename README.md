@@ -64,3 +64,19 @@ Suggested test checklist: opening on iPhone/Android, GPS permission, manual plac
 - Both platforms can also use the website directly without installing it. GPS requires user permission and HTTPS. Home-screen shortcut behavior and offline support vary by browser.
 
 This field-test release does not enable any club tracking, subscriptions or automated alerts. Existing V4 browser storage keys and features are unchanged.
+
+## V4 Field Weather Update
+- Field Conditions now has matching tiles for **wind direction** (compass bearing and degrees) and **current weather conditions** (clear, rain, cloudy, fog, snow, etc.). Data comes from Open-Meteo for the selected hunting location, not necessarily the phone’s current GPS location.
+- **View full forecast** opens a separate web search for the selected location. A network connection is required. Weather is informational and not a substitute for local alerts.
+- The rest of the original app, field testing panel, saved information and features are unchanged.
+
+
+## V5 — Trail Camera Command Center (field test)
+
+Supported manual camera registry brands: **Tactacam REVEAL, Moultrie, Bushnell**. Register names, models, GPS coordinates, battery/maintenance notes, and camera observations. View map pins, open directions and manufacturer websites, and import JPEG/PNG/WebP photos smaller than 12 MB. Photos are stored locally in the browser's IndexedDB where supported.
+
+**This does not connect to cellular camera accounts or pull live images, signal or battery status.** Do not enter camera account credentials. Camera lists are exported/imported as JSON; **images are not part of the JSON backup**. Download and preserve photo originals independently. Clearing browser data may erase records. No shared club database or automatic syncing is enabled.
+
+### Upload
+
+Upload `index.html` and `README.md` to the root of the existing Buck-Commander GitHub repository and commit. The GitHub Pages URL remains unchanged.
