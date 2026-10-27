@@ -1,16 +1,15 @@
-# Buck Command V12T — Hunting Markers (TEST ONLY)
+# Buck Command V12U — Hunting Records TEST
 
-Preserves the V12S County Explorer, ArcGIS 2D/3D views, address suggestions, Alabama county boundaries, Mobile County parcels and owner labels, saved properties, and lease drawing.
+Based on V12T. Adds editable management records to saved property markers.
+
+- Stands: type, condition, last check, next check, notes.
+- Feeders: feed type, last fill amount in pounds, condition, dates, notes.
+- Trail cameras: brand/model, battery percentage, recent sightings, condition, dates. No camera-cloud synchronization.
+- Food plots: acreage, crop/seed, planting date, condition, dates.
+- Select a marker to load its fields; use Save Marker Changes to update it.
+- Existing markers and backups remain compatible. All records are saved locally with their property and included in the backup JSON.
 
 ## Test
+Open index.html, open or save a property, add a marker, select it, change details, click Save Marker Changes, close/reopen that property and verify the details. Export Backup before switching versions.
 
-1. Open `index.html` in Chrome while online.
-2. Open an existing saved property or save a new property.
-3. Under Hunting Markers, choose Stand, Feeder, Trail Camera or Food Plot. Enter a name and optional notes.
-4. Click Place Marker on Map and click its location.
-5. Use My Saved Properties > Open Selected to reopen that property; markers should return.
-6. Export Backup; the same existing JSON format now also includes the markers. Import Backup will restore them.
-
-Markers save locally per property in the same browser storage as V12S. Because `file://` browser storage can vary by file path or browser, **export a backup** before switching versions. Old V12S backups import without markers. No external camera connectivity or club syncing is included.
-
-This does not alter GitHub or the user's live app.
+This is an isolated preview. Do not deploy to GitHub. Recorded acres and conditions are user-provided and are not independently verified.
