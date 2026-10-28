@@ -1,15 +1,12 @@
-# Buck Command V12U — Hunting Records TEST
+# Buck Command — Guardian Edition
 
-Based on V12T. Adds editable management records to saved property markers.
+Designed by James Meadows.
 
-- Stands: type, condition, last check, next check, notes.
-- Feeders: feed type, last fill amount in pounds, condition, dates, notes.
-- Trail cameras: brand/model, battery percentage, recent sightings, condition, dates. No camera-cloud synchronization.
-- Food plots: acreage, crop/seed, planting date, condition, dates.
-- Select a marker to load its fields; use Save Marker Changes to update it.
-- Existing markers and backups remain compatible. All records are saved locally with their property and included in the backup JSON.
+## GitHub Pages
+Upload `index.html` to the root of the `Buck-Commander` repository (replace the existing index.html). Keep GitHub Pages publishing from the same branch and root folder.
 
-## Test
-Open index.html, open or save a property, add a marker, select it, change details, click Save Marker Changes, close/reopen that property and verify the details. Export Backup before switching versions.
-
-This is an isolated preview. Do not deploy to GitHub. Recorded acres and conditions are user-provided and are not independently verified.
+## Notes
+Requires an internet connection for Esri maps, geocoding, and county parcel layers.
+Property records, stands, cameras, feeders and food plots are saved to the browser's local storage. Export a backup from Properties before replacing browsers or clearing browser data; local-file data may not automatically transfer to your GitHub Pages site.
+County tax parcel lines are approximate and do not substitute for a survey. Confirm landowner permission before hunting.
+Some Guardian/club cloud services discussed for future versions are not included in this release.
