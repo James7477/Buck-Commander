@@ -1,12 +1,17 @@
-# Buck Command — Guardian Edition
+# Buck Command V13C — Easy Start & Artwork Test
 
-Designed by James Meadows.
+This is a separate test. It does not modify the live GitHub Pages site.
 
-## GitHub Pages
-Upload `index.html` to the root of the `Buck-Commander` repository (replace the existing index.html). Keep GitHub Pages publishing from the same branch and root folder.
+## New
+- First-visit guide: Find Property, Add Hunting Markers, Open Saved Property, or go directly to the map.
+- Help button to reopen the guide.
+- Slightly refined crimson and forest-green styling with a buck emblem.
+- Better visible keyboard focus and confirmation messages where save events are confirmed.
 
-## Notes
-Requires an internet connection for Esri maps, geocoding, and county parcel layers.
-Property records, stands, cameras, feeders and food plots are saved to the browser's local storage. Export a backup from Properties before replacing browsers or clearing browser data; local-file data may not automatically transfer to your GitHub Pages site.
-County tax parcel lines are approximate and do not substitute for a survey. Confirm landowner permission before hunting.
-Some Guardian/club cloud services discussed for future versions are not included in this release.
+## Preserved
+Full-screen map, county explorer, property boundaries, ownership, 2D/3D, address suggestions, property saving, hunting markers, and lease outlines.
+
+## Test
+Open index.html in Chrome, try all four quick-start choices. To show the welcome screen again, click ? Help. Test marker placement and saved properties. Export a backup of properties before switching browser origins.
+
+Requires internet for ArcGIS imagery and parcel data. This is not a verified safety or club-tracking service.
