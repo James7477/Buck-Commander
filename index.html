@@ -191,6 +191,9 @@ body>header.buck-header-v13d{transform:none!important;left:0!important;right:0!i
 .bc-cards{grid-template-columns:1fr 1fr;gap:8px}.bc-card{padding:11px;min-height:104px}.bc-card b{font-size:15px}.bc-card span{font-size:11px}
 #bcHubContent{padding:15px}
 }
+#bcHelpPanel details{border:1px solid #4c765e;border-radius:11px;padding:11px 13px;margin:8px 0;background:#1a3428;color:#eaf1e9}
+#bcHelpPanel summary{font-weight:750;cursor:pointer;line-height:1.5}
+#bcHelpPanel details p{font-size:14px;line-height:1.6;margin:9px 0 2px;color:#d1e2d6}
 #v13cWelcome{display:none!important}
 </style><script src="https://js.arcgis.com/4.34/"></script></head><body>
 <div class="v13c-welcome" id="v13cWelcome" role="dialog" aria-modal="true" aria-labelledby="v13cTitle" hidden><div class="v13c-card">
@@ -210,6 +213,7 @@ body>header.buck-header-v13d{transform:none!important;left:0!important;right:0!i
 <div id="bcHub" role="dialog" aria-modal="true" aria-label="Buck Command main menu">
  <div id="bcHubContent">
   <div class="bc-head"><div><b style="font-size:23px;color:#f1ede0">BUCK <span style="color:#dc5261">COMMAND</span></b><div class="bc-note">Choose what you want to do · FREE BETA TESTING</div></div><button id="bcHubClose" type="button">✕ Close</button></div>
+  <button id="bcFeatureGuide" type="button" style="width:100%;display:block;box-sizing:border-box;margin:16px 0 0;padding:15px 12px;border:1px solid #d8b767;border-radius:13px;background:#e0b849;color:#14291f;font-size:16px;font-weight:900;text-align:center;cursor:pointer">📖 CLICK TO SEE FEATURES</button>
   <div id="bcMainCards" class="bc-cards">
    <button class="bc-card" data-bcgo="young"><b>🎓 Young Hunter</b><span>Learn skills and practice safety</span></button>
    <button class="bc-card" data-bcgo="pro"><b>🗺️ Hunter Pro</b><span>Find land, mark stands and feeders</span></button>
@@ -217,6 +221,16 @@ body>header.buck-header-v13d{transform:none!important;left:0!important;right:0!i
    <button class="bc-card" data-bcgo="club"><b>👥 Club Command</b><span>Club tools and development roadmap</span></button>
   </div>
   <div class="bc-feedback-strip" style="margin:14px 0 2px;padding:12px;border:1px solid #65776b;border-radius:12px;background:#14261f;text-align:center;color:#f1ede0"><div style="font-size:13px;margin-bottom:9px">🦌 Buck Command is free during beta testing. Help us improve it!</div><a href="https://script.google.com/macros/s/AKfycbwWDk6YrFq9RC_CUtuX9y-0VLc6AF3um9-BKdwxRTtRv7-J1QcJI2uh--_k9-Y7veZr/exec" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:11px 19px;border-radius:9px;background:#a52b40;color:white;font-weight:700;text-decoration:none;font-size:15px">✉ Send Feedback</a></div>
+  <section id="bcHelpPanel" class="bc-subpanel" aria-label="Buck Command help and features"><h2>📖 Features & Help Center</h2><p class="bc-note">Tap any question for an answer. Buck Command is a free beta: some features are still being developed.</p>
+<details open><summary>What can I do in Hunter Pro?</summary><p>Tap Hunter Pro to enter the map. Use Search for addresses, Counties for Alabama county outlines, Layers for property information, and the map tools to save hunting properties and equipment.</p></details>
+<details><summary>How do I search for an address or property?</summary><p>Tap Search on the map, enter street address, city and state, and select a result. Boundaries are reference information, not a legal property survey. Data coverage varies by county.</p></details>
+<details><summary>How do I add a stand, feeder, camera or food plot?</summary><p>Open or save a hunting property first. Then choose Stand, Feeder, Camera or Food Plot and follow the map prompts to place the item.</p></details>
+<details><summary>What is Young Hunter?</summary><p>Safety and preparation checklists for young hunters to review with a parent or mentor. These are educational reminders, not official hunter-education certification.</p></details>
+<details><summary>What can Guardian do?</summary><p>With your permission, Guardian can read GPS coordinates and save a truck location on this device. Full offline maps and automatic emergency messaging are not available. Satellite imagery requires internet access.</p></details>
+<details><summary>Does Club Command let members track one another?</summary><p>Not yet. Member accounts, shared locations and club bookings are planned, but are not active.</p></details>
+<details><summary>Where does my saved information go?</summary><p>Some information is stored in your browser on this device. It does not automatically sync to other phones. Clearing browser data may erase it; use backup/export when available.</p></details>
+<details><summary>How do I send feedback or report a problem?</summary><p>Return to Main Menu and tap Send Feedback. Your report goes to the Buck Command beta feedback records.</p></details>
+<button class="bc-action" type="button" data-bcback>← Back to Main Menu</button></section>
   <section id="bcYoung" class="bc-subpanel"><h2>Young Hunter · Pre-Hunt Safety</h2><p class="bc-note">Learn together with a parent or mentor. These reminders are not hunter-education certification.</p>
    <div id="bcLessons"></div><button class="bc-action" data-bcback>← Back</button></section>
   <section id="bcGuardian" class="bc-subpanel"><h2>Guardian · Offline Essentials</h2>
@@ -703,11 +717,13 @@ el('parcel').onclick=async()=>{
 /* V13F - deliberately separate from the map engine */
 (function(){
  const by=id=>document.getElementById(id),hub=by('bcHub'),cards=by('bcMainCards');
- const panels={young:by('bcYoung'),guardian:by('bcGuardian'),club:by('bcClub')};
+ const panels={young:by('bcYoung'),guardian:by('bcGuardian'),club:by('bcClub'),help:by('bcHelpPanel')};
  const show=v=>{cards.style.display=v?'none':'grid';Object.entries(panels).forEach(([key,el])=>el.classList.toggle('active',key===v));};
  const open=()=>{hub.classList.add('active');show(null)};
  const close=()=>hub.classList.remove('active');
  by('bcHubOpen').addEventListener('click',open);
+ by('bcFeatureGuide').addEventListener('click',()=>show('help'));
+ by('v13cHelp').addEventListener('click',()=>{open();show('help')});
  /* Show the four choices whenever the app opens, including returning visitors. */
  open();
  by('bcHubClose').addEventListener('click',close);
