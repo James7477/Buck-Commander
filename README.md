@@ -1,17 +1,12 @@
-# Buck Command V13C — Easy Start & Artwork Test
+# Buck Command V13F — Simple Command Center (Test Only)
+Extract the entire ZIP and open `index.html` in Chrome with internet access for ArcGIS maps.
 
-This is a separate test. It does not modify the live GitHub Pages site.
-
-## New
-- First-visit guide: Find Property, Add Hunting Markers, Open Saved Property, or go directly to the map.
-- Help button to reopen the guide.
-- Slightly refined crimson and forest-green styling with a buck emblem.
-- Better visible keyboard focus and confirmation messages where save events are confirmed.
-
-## Preserved
-Full-screen map, county explorer, property boundaries, ownership, 2D/3D, address suggestions, property saving, hunting markers, and lease outlines.
-
-## Test
-Open index.html in Chrome, try all four quick-start choices. To show the welcome screen again, click ? Help. Test marker placement and saved properties. Export a backup of properties before switching browser origins.
-
-Requires internet for ArcGIS imagery and parcel data. This is not a verified safety or club-tracking service.
+**Four simple entries:** Young Hunter, Hunter Pro, Guardian, Club Command.
+- Young Hunter: six editable safety checklist steps, saved locally in this browser.
+- Hunter Pro: returns to the working map, without changing its data.
+- Guardian: can request live GPS (subject to device/browser permissions) and save/copy one truck location in local browser storage.
+- Club Command: clearly marked as planned, not operational.
+- Existing map controls, address suggestions, counties, parcel/owner layers, hunting records, and help remain.
+- More menu and drawer close fixes carried forward.
+- Offline satellite map caching and a reliable service worker are **not included**. Do not rely on this prototype for emergency navigation. Browser GPS and local file storage vary by device.
+No GitHub deployment was made.
