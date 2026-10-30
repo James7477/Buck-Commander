@@ -194,6 +194,10 @@ body>header.buck-header-v13d{transform:none!important;left:0!important;right:0!i
 #bcHelpPanel details{border:1px solid #4c765e;border-radius:11px;padding:11px 13px;margin:8px 0;background:#1a3428;color:#eaf1e9}
 #bcHelpPanel summary{font-weight:750;cursor:pointer;line-height:1.5}
 #bcHelpPanel details p{font-size:14px;line-height:1.6;margin:9px 0 2px;color:#d1e2d6}
+.bc-holiday-wish{margin-top:9px;padding:7px 12px;border:1px solid #a77849;border-radius:999px;background:linear-gradient(90deg,#18472f,#4c212a,#18472f);color:#ffebba;font-size:12px;font-weight:750;letter-spacing:.25px;text-align:center}
+.buck-header-logo{position:relative}
+.buck-header-logo:after{content:"🎅";position:absolute;right:-5px;top:-6px;font-size:19px;transform:rotate(14deg);filter:drop-shadow(0 2px 2px #0008);pointer-events:none}
+@media(max-width:600px){.bc-holiday-wish{font-size:11px;padding:7px 8px}.buck-header-logo:after{font-size:15px;right:-2px;top:-3px}}
 #v13cWelcome{display:none!important}
 </style><script src="https://js.arcgis.com/4.34/"></script></head><body>
 <div class="v13c-welcome" id="v13cWelcome" role="dialog" aria-modal="true" aria-labelledby="v13cTitle" hidden><div class="v13c-card">
@@ -212,7 +216,7 @@ body>header.buck-header-v13d{transform:none!important;left:0!important;right:0!i
 <button id="bcHubOpen" type="button" aria-label="Open Buck Command main menu">☰ Main Menu</button>
 <div id="bcHub" role="dialog" aria-modal="true" aria-label="Buck Command main menu">
  <div id="bcHubContent">
-  <div class="bc-head"><div><b style="font-size:23px;color:#f1ede0">BUCK <span style="color:#dc5261">COMMAND</span></b><div class="bc-note">Choose what you want to do · FREE BETA TESTING</div></div><button id="bcHubClose" type="button">✕ Close</button></div>
+  <div class="bc-head"><div><b style="font-size:23px;color:#f1ede0">BUCK <span style="color:#dc5261">COMMAND</span></b><div class="bc-note">Choose what you want to do · FREE BETA TESTING</div><div class="bc-holiday-wish" aria-label="Christmas greeting">❄️ 🎄 Merry Christmas from Buck Command! 🦌 ❄️</div></div><button id="bcHubClose" type="button">✕ Close</button></div>
   <button id="bcFeatureGuide" type="button" style="width:100%;display:block;box-sizing:border-box;margin:16px 0 0;padding:15px 12px;border:1px solid #d8b767;border-radius:13px;background:#e0b849;color:#14291f;font-size:16px;font-weight:900;text-align:center;cursor:pointer">📖 CLICK TO SEE FEATURES</button>
   <div id="bcMainCards" class="bc-cards">
    <button class="bc-card" data-bcgo="young"><b>🎓 Young Hunter</b><span>Learn skills and practice safety</span></button>
