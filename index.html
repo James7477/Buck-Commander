@@ -191,6 +191,7 @@ body>header.buck-header-v13d{transform:none!important;left:0!important;right:0!i
 .bc-cards{grid-template-columns:1fr 1fr;gap:8px}.bc-card{padding:11px;min-height:104px}.bc-card b{font-size:15px}.bc-card span{font-size:11px}
 #bcHubContent{padding:15px}
 }
+#v13cWelcome{display:none!important}
 </style><script src="https://js.arcgis.com/4.34/"></script></head><body>
 <div class="v13c-welcome" id="v13cWelcome" role="dialog" aria-modal="true" aria-labelledby="v13cTitle" hidden><div class="v13c-card">
 <div class="v13c-emblem" aria-hidden="true">🦌</div><small>BUCK COMMAND · GUARDIAN EDITION</small>
@@ -672,9 +673,9 @@ el('parcel').onclick=async()=>{
 (function(){
  const $=id=>document.getElementById(id),welcome=$('v13cWelcome');
  const key='buck-command-v13c-welcome-seen';
- const reveal=()=>{welcome.hidden=false};
+ const reveal=()=>{document.getElementById('bcHubOpen')?.click()};
  const close=()=>{welcome.hidden=true;try{localStorage.setItem(key,'1')}catch(_){}};
- try{if(localStorage.getItem(key)!=='1')reveal()}catch(_){reveal()}
+ /* Old welcome box retired; the four-choice command center opens instead. */
  $('v13cHelp').addEventListener('click',reveal);
  $('v13cSkip').addEventListener('click',close);
  welcome.addEventListener('click',e=>{if(e.target===welcome)close()});
@@ -706,6 +707,8 @@ el('parcel').onclick=async()=>{
  const open=()=>{hub.classList.add('active');show(null)};
  const close=()=>hub.classList.remove('active');
  by('bcHubOpen').addEventListener('click',open);
+ /* Show the four choices whenever the app opens, including returning visitors. */
+ open();
  by('bcHubClose').addEventListener('click',close);
  document.querySelectorAll('[data-bcback]').forEach(x=>x.addEventListener('click',()=>show(null)));
  document.querySelectorAll('[data-bcgo]').forEach(b=>b.addEventListener('click',()=>{
