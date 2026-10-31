@@ -199,6 +199,139 @@ body>header.buck-header-v13d{transform:none!important;left:0!important;right:0!i
 .buck-header-logo:after{content:"🎅";position:absolute;right:-5px;top:-6px;font-size:19px;transform:rotate(14deg);filter:drop-shadow(0 2px 2px #0008);pointer-events:none}
 @media(max-width:600px){.bc-holiday-wish{font-size:11px;padding:7px 8px}.buck-header-logo:after{font-size:15px;right:-2px;top:-3px}}
 #v13cWelcome{display:none!important}
+
+/* V13G TEST ONLY — keep live index and all existing map functions intact. */
+body.bc-panel-open #mapToolbar,
+body.bc-panel-open .overlay,
+body.bc-panel-open .esri-ui-top-left,
+body.bc-panel-open .esri-ui-top-right {
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+#bcBottomRail {
+  position:fixed;
+  z-index:33;
+  bottom:14px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(820px,calc(100vw - 18px));
+  display:flex;
+  gap:5px;
+  align-items:center;
+  pointer-events:none;
+}
+#bcBottomRail > * { pointer-events:auto; }
+#bcBottomRail #mapBottom {
+  position:relative !important;
+  inset:auto !important;
+  transform:none !important;
+  width:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  margin:0 !important;
+  flex:1 1 auto;
+  padding:7px 5px !important;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  scroll-behavior:smooth;
+}
+#bcBottomRail .bc-rail-arrow {
+  flex:0 0 33px;
+  width:33px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:2px solid #c14d51;
+  border-radius:12px;
+  color:#fff5e7;
+  background:#203a30;
+  box-shadow:0 4px 12px #000a;
+  font-size:17px;
+  font-weight:800;
+  cursor:pointer;
+  touch-action:manipulation;
+}
+#bcBottomRail .bc-rail-arrow:disabled {opacity:.52;cursor:default;}
+#bcBottomRail .bc-rail-arrow:not(:disabled):active {background:#922f3b;}
+#bcBottomRail .bc-rail-arrow:focus-visible {outline:3px solid #ffd478;outline-offset:2px;}
+@media(max-width:740px) {
+  #bcBottomRail {bottom:calc(7px + env(safe-area-inset-bottom, 0px));width:calc(100vw - 12px);gap:3px;}
+  #bcBottomRail .bc-rail-arrow {width:29px;flex-basis:29px;height:40px;font-size:16px;border-radius:10px;}
+  #bcBottomRail #mapBottom {padding:6px 3px !important;}
+}
+
+/* Buck Command V13H TEST ONLY — original map and live index unaffected */
+.bc13-dialog{width:min(650px,calc(100vw - 16px));max-height:87dvh;overflow-y:auto;border:2px solid #c66565;border-radius:21px;background:linear-gradient(150deg,#1a3c2b,#10241b);color:#f6f3e8;padding:0;box-shadow:0 25px 80px #000e}
+.bc13-dialog::backdrop{background:#07100bdb;backdrop-filter:blur(3px)}
+.bc13-inner{padding:19px}.bc13-head{display:flex;align-items:start;justify-content:space-between;gap:10px}
+.bc13-head h2{font-size:clamp(20px,4.5vw,27px);color:#ffe7b1;margin:0}.bc13-head p,.bc13-note{font-size:12px;line-height:1.5;color:#d0decf;margin:8px 0}
+.bc13-close,.bc13-btn{border:1px solid #be837c;border-radius:11px;color:#fff;background:#33543f;cursor:pointer;min-height:43px;padding:9px 11px;font:700 13px system-ui}
+.bc13-close{background:#693039;font-size:19px;flex:0 0 43px}
+.bc13-btn:focus-visible,.bc13-close:focus-visible,.bc13-picks button:focus-visible{outline:3px solid #ffe49b;outline-offset:2px}
+.bc13-actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.bc13-actions>.bc13-btn{flex:1 1 135px}
+.bc13-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:19px 0}
+.bc13-picks button{min-height:91px;white-space:normal;background:#315a40;color:#fff3dc;border:1px solid #b7a377;border-radius:15px;font-size:clamp(15px,3.5vw,20px);font-weight:800;padding:12px 6px;cursor:pointer}
+.bc13-picks button:hover{background:#4d7351}
+.bc13-statgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:14px}
+.bc13-stat{border:1px solid #65856c;border-radius:12px;background:#264635;padding:11px}
+.bc13-stat:first-child{grid-column:1/-1;background:#4a412c;border-color:#bca374}
+.bc13-stat small{display:block;color:#cee1ce;font-size:11px}.bc13-stat strong{display:block;color:#ffeab9;font-size:clamp(17px,4vw,26px);margin-top:4px}
+.bc13-days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:8px}
+.bc13-day{border:1px solid #637865;border-radius:12px;background:#263e30;padding:10px 7px;font-size:11px;line-height:1.55}
+.bc13-day b{display:block;color:#ffe4a7;font-size:14px}.bc13-day span{display:block}
+.bc13-sectiontitle{color:#ffebb4;margin:19px 0 8px;font-size:16px}
+#bc13Note{width:100%;min-height:80px;max-height:190px;resize:vertical;border:1px solid #79957c;border-radius:10px;background:#0c2017;color:#fff;padding:10px;font:inherit}
+#bc13Preview{width:100%;max-height:270px;object-fit:contain;border-radius:12px;background:#0b1c14;margin-top:8px}
+#bc13Preview[hidden]{display:none!important}
+#bc13JournalList{display:grid;gap:10px}
+.bc13-jentry{border:1px solid #69836b;background:#203d2b;padding:11px;border-radius:13px}
+.bc13-jentry img{width:100%;max-height:250px;object-fit:contain;border-radius:8px;background:#0a1c14}
+.bc13-jentry p{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}
+.bc13-jentry small{color:#d5e1d0}
+#bc13MoreChoices{display:grid;gap:9px;margin-top:14px}
+body.bc13-modal-open #mapToolbar,body.bc13-modal-open .overlay,body.bc13-modal-open .esri-ui-top-left,body.bc13-modal-open .esri-ui-top-right{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+#propertiesPanel #mapDraw{display:block;margin:12px 0;width:100%;padding:11px 6px;background:#30533e;color:#fff;border:1px solid #dda86b;border-radius:10px;font-weight:800}
+#mapBottom #bc13WeatherBtn,#mapBottom #bc13CameraBtn,#mapBottom #bc13AddBtn{border-color:#d8ac71!important}
+@media(max-width:480px){.bc13-inner{padding:13px}.bc13-picks{gap:8px}.bc13-picks button{min-height:80px}.bc13-day{padding:8px 4px;font-size:10px}}
+
+
+/* V13I isolated test — feedback survey, Moultrie preview, Guardian, first aid and panel fixes */
+#toolDrawer.bc15-properties-only>:not(#drawerTop):not(#propertiesPanel){display:none!important}
+#toolDrawer.bc15-properties-only #propertiesPanel{display:block!important;margin:0;min-height:0}
+#toolDrawer.bc15-properties-only #propertiesPanel>h2:first-child{margin-top:5px;font-size:22px;color:#ffdf9b}
+#mapBottom #bc15AidBtn{border-color:#db8d7c!important;background:#763a32!important}
+#mapBottom #bc15FeaturesBtn{border-color:#dfad7c!important}
+.bc15-dialog{box-sizing:border-box;position:fixed;width:min(670px,calc(100vw - 14px));max-height:89dvh;overflow-y:auto;padding:0;border:2px solid #b96768;border-radius:20px;background:linear-gradient(145deg,#1c3b2b,#10241b);color:#fff5e5;box-shadow:0 20px 75px #000c}
+.bc15-dialog::backdrop{background:#06140bcf;backdrop-filter:blur(3px)}
+.bc15-inner{padding:18px}.bc15-head{display:flex;justify-content:space-between;align-items:start;gap:10px}.bc15-head h2{color:#ffdf9d;margin:0;font-size:clamp(20px,4vw,28px)}
+.bc15-head p,.bc15-note{color:#d0e0cf;font-size:13px;line-height:1.5;margin:8px 0 13px}
+.bc15-x,.bc15-btn{cursor:pointer;background:#315741;color:white;border:1px solid #b38e72;border-radius:11px;padding:11px 12px;font-weight:800;font:700 14px system-ui;min-height:42px}
+.bc15-x{flex:0 0 43px;background:#713039;font-size:19px}
+.bc15-btn:focus-visible,.bc15-x:focus-visible,.bc15-select:focus-visible{outline:3px solid #ffe79a;outline-offset:2px}
+.bc15-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:16px 0}
+.bc15-choices .bc15-btn{text-align:left;min-height:89px;font-size:16px;white-space:normal}
+.bc15-choices small{display:block;margin-top:4px;color:#d1e3d3;font-size:11px;font-weight:450}
+.bc15-warning{padding:12px;background:#632d2d;border:1px solid #df8f7a;border-radius:13px;margin:12px 0}
+.bc15-warning a{display:inline-block;color:white;background:#a82f35;border:1px solid #e2ada1;border-radius:10px;padding:11px 15px;text-decoration:none;font-weight:900}
+.bc15-dialog details{background:#203e2d;border:1px solid #618266;border-radius:12px;padding:12px;margin:9px 0}
+.bc15-dialog details summary{font-weight:850;color:#ffe2aa;cursor:pointer;font-size:15px}
+.bc15-dialog details p{font-size:13px;line-height:1.6;margin:10px 0 0}
+.bc15-dialog label.bc15-label{display:block;margin:12px 0 5px;font-size:13px;color:#ffe2a2;font-weight:800}
+.bc15-dialog input[type=text],.bc15-dialog input[type=tel],.bc15-dialog textarea,.bc15-select{box-sizing:border-box;width:100%;padding:10px;border-radius:9px;background:#0b2117;color:white;border:1px solid #73947c;font:14px system-ui}
+.bc15-dialog textarea{min-height:78px;resize:vertical}
+.bc15-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.bc15-options label{background:#254333;border:1px solid #4d735b;border-radius:10px;padding:9px 7px;color:#fff3df;font-size:13px;display:flex;gap:7px;align-items:center}
+.bc15-options input{width:auto;flex:0 0 auto}
+.bc15-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.bc15-actions .bc15-btn{flex:1 1 150px}
+.bc15-camera-row{padding:12px;border-radius:12px;border:1px solid #718b6f;background:#21432f;margin:10px 0}
+.bc15-camera-row b{display:block;color:#ffe3a4}.bc15-camera-row small{color:#cddccb}
+.bc15-muted{color:#ccdbcb;font-size:12px;line-height:1.5}
+.bc15-muted a{color:#ffe5a5}
+@media(max-width:450px){.bc15-inner{padding:12px}.bc15-choices{gap:7px}.bc15-choices .bc15-btn{padding:9px;min-height:75px;font-size:14px}.bc15-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 </style><script src="https://js.arcgis.com/4.34/"></script></head><body>
 <div class="v13c-welcome" id="v13cWelcome" role="dialog" aria-modal="true" aria-labelledby="v13cTitle" hidden><div class="v13c-card">
 <div class="v13c-emblem" aria-hidden="true">🦌</div><small>BUCK COMMAND · GUARDIAN EDITION</small>
@@ -761,5 +894,477 @@ el('parcel').onclick=async()=>{
  by('bcCopy').onclick=async()=>{if(!saved){by('bcTruck').textContent='Save a truck location first.';return}try{await navigator.clipboard.writeText(`${saved.lat.toFixed(6)}, ${saved.lng.toFixed(6)}`);by('bcTruck').textContent='Coordinates copied. '+saved.lat.toFixed(6)+', '+saved.lng.toFixed(6)}catch(e){by('bcTruck').textContent=`Coordinates: ${saved.lat.toFixed(6)}, ${saved.lng.toFixed(6)} (copy manually)`}};
  by('bcOffline').textContent='Offline check: browser storage is local. This test does not cache satellite imagery or guarantee offline page loading. Before a trip, test in airplane mode.';
 })();
+</script>
+
+<script id="bc-v13g-navigation-test">
+/* V13G test: hide map controls for open search/tool panels; add mobile-friendly bottom scroll arrows. */
+(function(){
+  'use strict';
+  const drawer=document.getElementById('toolDrawer');
+  const bar=document.getElementById('mapBottom');
+  if(!drawer || !bar || document.getElementById('bcBottomRail'))return;
+  function syncPanel(){
+    document.body.classList.toggle('bc-panel-open',drawer.classList.contains('open'));
+  }
+  new MutationObserver(syncPanel).observe(drawer,{attributes:true,attributeFilter:['class']});
+  syncPanel();
+  const rail=document.createElement('nav');
+  rail.id='bcBottomRail';
+  rail.setAttribute('aria-label','Scroll the bottom map tool buttons');
+  const arrow=(label,glyph)=>{
+    const b=document.createElement('button');
+    b.type='button';
+    b.className='bc-rail-arrow';
+    b.textContent=glyph;
+    b.setAttribute('aria-label',label);
+    b.title=label+' (or swipe the buttons)';
+    return b;
+  };
+  const left=arrow('Scroll map tools left','◀');
+  const right=arrow('Scroll map tools right','▶');
+  bar.before(rail);
+  rail.append(left,bar,right);
+  function updateArrows(){
+    const max=Math.max(0,bar.scrollWidth-bar.clientWidth);
+    left.disabled=max<4 || bar.scrollLeft<3;
+    right.disabled=max<4 || bar.scrollLeft>max-3;
+  }
+  left.addEventListener('click',()=>bar.scrollBy({left:-Math.max(160,bar.clientWidth*.65),behavior:'smooth'}));
+  right.addEventListener('click',()=>bar.scrollBy({left:Math.max(160,bar.clientWidth*.65),behavior:'smooth'}));
+  bar.addEventListener('scroll',updateArrows,{passive:true});
+  window.addEventListener('resize',updateArrows,{passive:true});
+  if('ResizeObserver' in window)new ResizeObserver(updateArrows).observe(bar);
+  requestAnimationFrame(updateArrows);
+  setTimeout(updateArrows,250);
+})();
+</script>
+
+<dialog class="bc13-dialog" id="bc13Add" aria-labelledby="bc13AddTitle"><div class="bc13-inner"><div class="bc13-head"><div><h2 id="bc13AddTitle">📍 Add to Your Map</h2><p>What would you like to add to your hunting property?</p></div><button class="bc13-close" type="button" data-bc13-close="bc13Add" aria-label="Close">✕</button></div><div id="bc13MarkerPicks" class="bc13-picks"></div><p class="bc13-note">Open or save a property before placing a marker. The original marker forms and saved records are unchanged.</p></div></dialog>
+<dialog class="bc13-dialog" id="bc13Weather" aria-labelledby="bc13WeatherTitle"><div class="bc13-inner"><div class="bc13-head"><div><h2 id="bc13WeatherTitle">🌦 Hunt Weather</h2><p>Live conditions and a three-day forecast for your chosen hunting location.</p></div><button class="bc13-close" type="button" data-bc13-close="bc13Weather" aria-label="Close">✕</button></div><div class="bc13-actions"><button id="bc13WeatherPin" class="bc13-btn" type="button">📍 Selected Map Point</button><button id="bc13WeatherGPS" class="bc13-btn" type="button">📡 Phone GPS</button><button id="bc13WeatherRefresh" class="bc13-btn" type="button">⟳ Refresh</button></div><p id="bc13WeatherStatus" class="bc13-note" aria-live="polite">Select an address or location on the map, or use Phone GPS.</p><div id="bc13WeatherStats" class="bc13-statgrid"></div><h3 id="bc13DaysTitle" class="bc13-sectiontitle" hidden>Next 3 Days</h3><div id="bc13WeatherDays" class="bc13-days"></div><p class="bc13-note">Weather model data: <a href="https://open-meteo.com/" style="color:#ffe4ab" target="_blank" rel="noopener noreferrer">Open-Meteo</a> and its providers (CC BY 4.0). Needs internet. Weather at a particular stand may vary; use official alerts for dangerous conditions. GPS permission is requested only when you press Phone GPS.</p></div></dialog>
+<dialog class="bc13-dialog" id="bc13Journal" aria-labelledby="bc13JournalTitle"><div class="bc13-inner"><div class="bc13-head"><div><h2 id="bc13JournalTitle">📸 Hunt Journal Camera</h2><p>Take a photo on your phone and save it to your hunting journal.</p></div><button class="bc13-close" type="button" data-bc13-close="bc13Journal" aria-label="Close">✕</button></div><div class="bc13-actions"><button id="bc13TakePhoto" class="bc13-btn" type="button">📷 Take / Choose Photo</button><button id="bc13SavePhoto" class="bc13-btn" type="button">💾 Save Journal Entry</button></div><input id="bc13File" type="file" accept="image/*" capture="environment" hidden><img id="bc13Preview" hidden alt="Selected photo preview"><label for="bc13Note" style="display:block;color:#ffefc4;margin:14px 0 6px">Photo / Hunt Notes</label><textarea id="bc13Note" maxlength="1000" placeholder="What did you see? Where? When? Hunting conditions…"></textarea><p id="bc13JournalStatus" class="bc13-note" aria-live="polite">Photos and notes are saved on this device only. They don't sync to other phones. Use Download Photo for photos you want to keep permanently.</p><h3 class="bc13-sectiontitle">Saved Journal Photos</h3><div class="bc13-actions"><button type="button" id="bc13Reload" class="bc13-btn">↻ Refresh Journal</button></div><div id="bc13JournalList"></div></div></dialog>
+<dialog class="bc13-dialog" id="bc13More" aria-labelledby="bc13MoreTitle"><div class="bc13-inner"><div class="bc13-head"><div><h2 id="bc13MoreTitle">🦌 Hunt Companion</h2><p>Useful extras without repeating map search or markers.</p></div><button class="bc13-close" type="button" data-bc13-close="bc13More" aria-label="Close">✕</button></div><div id="bc13MoreChoices"><button type="button" id="bc13MoreJournal" class="bc13-btn">📔 Open Hunt Journal</button><button type="button" id="bc13MoreBackup" class="bc13-btn">💾 Backup Hunting Properties</button><button type="button" id="bc13MoreRestore" class="bc13-btn">📂 Restore Property Backup</button><button type="button" id="bc13MoreDiagnostic" class="bc13-btn">🩺 Parcel Diagnostics</button><button type="button" id="bc13MoreHelp" class="bc13-btn">❓ Help / Features</button></div><p class="bc13-note">Property backups do not include journal photos. Download each journal photo separately to keep a copy outside the app.</p></div></dialog>
+
+<script id="bc13-v13h-enhancements">
+
+(function(){
+'use strict';
+const $=id=>document.getElementById(id),bar=$('mapBottom'),picks=$('bc13MarkerPicks');
+if(!bar||!picks)return;
+function refreshModalState(){document.body.classList.toggle('bc13-modal-open',Array.from(document.querySelectorAll('dialog.bc13-dialog')).some(d=>d.open));}
+function open(id){const d=$(id);if(!d)return;try{d.showModal();}catch(e){d.setAttribute('open','');}refreshModalState();}
+function close(id){const d=$(id);if(d?.open){if(d.close)d.close();else d.removeAttribute('open');}refreshModalState();}
+document.querySelectorAll('[data-bc13-close]').forEach(b=>b.addEventListener('click',()=>close(b.dataset.bc13Close)));
+document.querySelectorAll('dialog.bc13-dialog').forEach(d=>{
+ d.addEventListener('close',refreshModalState);
+ d.addEventListener('click',e=>{if(e.target===d)close(d.id)});
+});
+function button(id,label){const b=document.createElement('button');b.type='button';b.id=id;b.textContent=label;return b;}
+const addBtn=button('bc13AddBtn','📍 Add to Map'),weatherBtn=button('bc13WeatherBtn','🌦 Weather'),cameraBtn=button('bc13CameraBtn','📸 Journal Camera');
+const labels={stand:'🪜 Stand',feeder:'🌽 Feeder',camera:'📷 Trail Camera',plot:'🌱 Food Plot'};
+Object.entries(labels).forEach(([kind,label])=>{
+ const b=bar.querySelector('[data-map-tool="'+kind+'"]');
+ if(b){b.textContent=label;picks.append(b);b.addEventListener('click',()=>close('bc13Add'));}
+});
+const properties=$('mapProperties');
+bar.prepend(addBtn);
+addBtn.after(weatherBtn,cameraBtn);
+const draw=$('mapDraw'),propPanel=$('propertiesPanel');
+if(draw&&propPanel){draw.textContent='⬡ Draw / Edit Property Outline';const h=propPanel.querySelector('h2');if(h)h.after(draw);else propPanel.prepend(draw);}
+addBtn.addEventListener('click',()=>open('bc13Add'));
+weatherBtn.addEventListener('click',()=>{
+ open('bc13Weather');
+ const lat=Number($('lat')?.value),lon=Number($('lon')?.value);
+ if($('lat')?.value.trim() && $('lon')?.value.trim() && Math.abs(lat)<=90&&Math.abs(lon)<=180)loadWeather({lat,lon,name:'Selected map location'});
+ else $('bc13WeatherStatus').textContent='Search an address or select a map point first, or tap Phone GPS.';
+});
+const existingMore=$('mapMore');
+if(existingMore)existingMore.onclick=()=>open('bc13More');
+$('bc13MoreJournal').onclick=()=>{close('bc13More');openJournal(false)};
+$('bc13MoreBackup').onclick=()=>{close('bc13More');$('exportProperties')?.click();};
+$('bc13MoreRestore').onclick=()=>{close('bc13More');$('importProperties')?.click();};
+$('bc13MoreHelp').onclick=()=>{close('bc13More');$('v13cHelp')?.click();};
+$('bc13MoreDiagnostic').onclick=()=>{
+ close('bc13More');$('mapLayers')?.click();
+ const details=Array.from($('toolDrawer')?.querySelectorAll('details.savepanel')||[]).find(d=>d.textContent.includes('Advanced Parcel Diagnostics'));
+ if(details){details.open=true;details.scrollIntoView({block:'start',behavior:'smooth'});}
+};
+// WEATHER: use the last searched/map-selected coordinates, or user-approved phone GPS.
+const stat=$('bc13WeatherStatus'),cards=$('bc13WeatherStats'),days=$('bc13WeatherDays'),dayTitle=$('bc13DaysTitle');
+let weatherSpot=null,weatherRequest=0,abortWeather=null;
+const f=(value,dec=0,suffix='')=>value===null||value===undefined||!Number.isFinite(Number(value))?'—':Number(value).toFixed(dec)+suffix;
+const windDirs=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+function wind(deg){if(deg===null||deg===undefined||!Number.isFinite(Number(deg)))return '—';const a=((Number(deg)%360)+360)%360;return windDirs[Math.round(a/22.5)%16]+' ('+Math.round(a)+'°)';}
+function description(code){
+ if(code===0)return 'Clear';if(code===1)return 'Mostly clear';if(code===2)return 'Partly cloudy';if(code===3)return 'Cloudy';
+ if(code===45||code===48)return 'Fog';if([51,53,55,56,57].includes(code))return 'Drizzle';
+ if([61,63,65,66,67].includes(code))return 'Rain';if([71,73,75,77].includes(code))return 'Snow';
+ if([80,81,82].includes(code))return 'Showers';if([85,86].includes(code))return 'Snow showers';
+ if([95,96,99].includes(code))return 'Thunderstorms';return 'Conditions unavailable';
+}
+function card(label,val){
+ const node=document.createElement('div');node.className='bc13-stat';const s=document.createElement('small'),b=document.createElement('strong');s.textContent=label;b.textContent=val;node.append(s,b);return node;
+}
+function renderWeather(data,spot){
+ const c=data.current,d=data.daily;if(!c||!Number.isFinite(Number(c.temperature_2m)))throw Error('No current conditions in response');
+ cards.replaceChildren(
+ card('Present conditions',description(c.weather_code)),card('Temperature',f(c.temperature_2m,0,'°F')),card('Feels like',f(c.apparent_temperature,0,'°F')),
+ card('Wind FROM',wind(c.wind_direction_10m)),card('Wind speed',f(c.wind_speed_10m,0,' mph')),card('Wind gusts',f(c.wind_gusts_10m,0,' mph')),
+ card('Humidity',f(c.relative_humidity_2m,0,'%')),card('Cloud cover',f(c.cloud_cover,0,'%')),card('Precipitation (current)',f(c.precipitation,2,' in'))
+ );
+ days.replaceChildren();dayTitle.hidden=true;
+ if(d&&Array.isArray(d.time)){
+   dayTitle.hidden=false;
+   d.time.slice(0,3).forEach((date,i)=>{
+     const node=document.createElement('div');node.className='bc13-day';
+     const label=document.createElement('b');label.textContent=i===0?'Today':new Date(date+'T12:00:00').toLocaleDateString('en-US',{weekday:'short'});node.append(label);
+     [
+      description(d.weather_code?.[i]),
+      f(d.temperature_2m_max?.[i],0,'°')+' / '+f(d.temperature_2m_min?.[i],0,'°'),
+      'Rain chance: '+f(d.precipitation_probability_max?.[i],0,'%'),
+      'Sunrise: '+(d.sunrise?.[i]?.slice(11,16)||'—'),
+      'Sunset: '+(d.sunset?.[i]?.slice(11,16)||'—')
+     ].forEach(v=>{const span=document.createElement('span');span.textContent=v;node.append(span);});days.append(node);
+   });
+ }
+ stat.textContent=spot.name+' · '+spot.lat.toFixed(4)+', '+spot.lon.toFixed(4)+' · Weather model time '+String(c.time||'').replace('T',' ')+' '+String(data.timezone_abbreviation||'');
+}
+async function loadWeather(spot){
+ if(!spot||!Number.isFinite(spot.lat)||!Number.isFinite(spot.lon)||Math.abs(spot.lat)>90||Math.abs(spot.lon)>180)return;
+ weatherSpot=spot;
+ const seq=++weatherRequest;
+ if(abortWeather)abortWeather.abort();abortWeather=new AbortController();
+ const controller=abortWeather,timeout=setTimeout(()=>controller.abort(),15000);
+ cards.replaceChildren();days.replaceChildren();dayTitle.hidden=true;
+ stat.textContent='Loading weather for '+spot.name+'…';
+ const params=new URLSearchParams({
+ latitude:spot.lat.toFixed(5),longitude:spot.lon.toFixed(5),
+ current:'temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,weather_code,cloud_cover,wind_speed_10m,wind_direction_10m,wind_gusts_10m',
+ daily:'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset',
+ forecast_days:'3',timezone:'auto',temperature_unit:'fahrenheit',wind_speed_unit:'mph',precipitation_unit:'inch'
+ });
+ try{
+  const response=await fetch('https://api.open-meteo.com/v1/forecast?'+params.toString(),{signal:controller.signal});
+  if(!response.ok)throw Error('Weather service error '+response.status);
+  const data=await response.json();
+  if(seq!==weatherRequest||!$('bc13Weather').open)return;
+  if(data.error)throw Error(data.reason||'Weather service failed');
+  renderWeather(data,spot);
+ }catch(err){if(seq===weatherRequest&&$('bc13Weather').open)stat.textContent='Weather unavailable: '+(err.name==='AbortError'?'Connection timed out or request replaced':err.message)+'. Try again when online.';}
+ finally{clearTimeout(timeout);}
+}
+$('bc13WeatherPin').onclick=()=>{
+ const latS=$('lat')?.value.trim(),lonS=$('lon')?.value.trim(),lat=Number(latS),lon=Number(lonS);
+ if(!latS||!lonS||!Number.isFinite(lat)||!Number.isFinite(lon)||Math.abs(lat)>90||Math.abs(lon)>180){stat.textContent='No selected map location. Search an address first, or use Phone GPS.';return;}
+ loadWeather({lat,lon,name:'Selected map location'});
+};
+$('bc13WeatherGPS').onclick=()=>{
+ if(!navigator.geolocation){stat.textContent='GPS unavailable in this browser.';return;}
+ stat.textContent='Requesting phone GPS permission…';
+ navigator.geolocation.getCurrentPosition(pos=>loadWeather({lat:pos.coords.latitude,lon:pos.coords.longitude,name:'Phone GPS'}),err=>{stat.textContent='GPS unavailable: '+err.message;},{enableHighAccuracy:true,timeout:15000,maximumAge:0});
+};
+$('bc13WeatherRefresh').onclick=()=>weatherSpot?loadWeather(weatherSpot):$('bc13WeatherPin').click();
+// JOURNAL CAMERA: no server, location sharing, or recurring GPS; photos stay in browser IndexedDB.
+const fileInput=$('bc13File'),preview=$('bc13Preview'),note=$('bc13Note'),jStatus=$('bc13JournalStatus'),jList=$('bc13JournalList');
+let previewURL=null,photoFile=null,entryURLs=[];
+const DB='buck-command-local-hunt-journal-v1',STORE='photos';
+function openDB(){
+ return new Promise((resolve,reject)=>{
+  if(!('indexedDB' in window)){reject(Error('This browser does not support local photo storage'));return;}
+  const req=indexedDB.open(DB,1);
+  req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains(STORE))req.result.createObjectStore(STORE,{keyPath:'id'});};
+  req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||Error('Journal database unavailable'));
+ });
+}
+async function saveEntry(entry){
+ const db=await openDB();
+ try{await new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(entry);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error||Error('Save failed'));tx.onabort=()=>reject(tx.error||Error('Save cancelled'));});}
+ finally{db.close();}
+}
+async function listEntries(){
+ const db=await openDB();
+ try{return await new Promise((resolve,reject)=>{const q=db.transaction(STORE,'readonly').objectStore(STORE).getAll();q.onsuccess=()=>resolve(q.result||[]);q.onerror=()=>reject(q.error||Error('Cannot read journal'));});}
+ finally{db.close();}
+}
+async function deleteEntry(id){
+ const db=await openDB();
+ try{await new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).delete(id);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error||Error('Delete failed'));});}
+ finally{db.close();}
+}
+function clearPreview(){
+ if(previewURL)URL.revokeObjectURL(previewURL);previewURL=null;photoFile=null;
+ preview.hidden=true;preview.removeAttribute('src');fileInput.value='';
+}
+function openJournal(takePhoto){
+ open('bc13Journal');renderJournal();
+ if(takePhoto)fileInput.click();
+}
+cameraBtn.onclick=()=>openJournal(true);
+$('bc13TakePhoto').onclick=()=>fileInput.click();
+fileInput.onchange=()=>{
+ const file=fileInput.files?.[0];if(!file)return;
+ if(!file.type.startsWith('image/')){jStatus.textContent='Choose an image file.';clearPreview();return;}
+ photoFile=file;
+ if(previewURL)URL.revokeObjectURL(previewURL);
+ previewURL=URL.createObjectURL(file);
+ preview.src=previewURL;preview.hidden=false;
+ jStatus.textContent='Photo ready ('+Math.round(file.size/1024)+' KB). Add notes, then tap Save Journal Entry.';
+};
+async function shrinkPhoto(file){
+ if(file.size<=1600000)return file;
+ try{
+  const bitmap=await createImageBitmap(file);
+  const ratio=Math.min(1,1600/Math.max(bitmap.width,bitmap.height));
+  const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(bitmap.width*ratio));canvas.height=Math.max(1,Math.round(bitmap.height*ratio));
+  canvas.getContext('2d').drawImage(bitmap,0,0,canvas.width,canvas.height);
+  bitmap.close?.();
+  return await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('Image conversion failed')),'image/jpeg',.78));
+ }catch(err){if(file.size>12000000)throw Error('Photo is too large to save on this device. Choose a smaller image.');return file;}
+}
+$('bc13SavePhoto').onclick=async()=>{
+ const file=photoFile;
+ if(!file){jStatus.textContent='Take or choose a photo first.';return;}
+ const button=$('bc13SavePhoto');button.disabled=true;jStatus.textContent='Saving photo to this device…';
+ try{
+  const blob=await shrinkPhoto(file);
+  await saveEntry({id:'hunt_'+Date.now()+'_'+Math.random().toString(36).slice(2),time:new Date().toISOString(),note:note.value.trim(),image:blob});
+  clearPreview();note.value='';jStatus.textContent='✓ Photo saved in Hunt Journal on this device.';await renderJournal();
+ }catch(err){jStatus.textContent='Could not save: '+err.message+'; download the photo separately if needed.';}
+ finally{button.disabled=false;}
+};
+async function renderJournal(){
+ for(const u of entryURLs)URL.revokeObjectURL(u);entryURLs=[];
+ jList.replaceChildren();
+ try{
+  const records=(await listEntries()).sort((a,b)=>String(b.time).localeCompare(String(a.time)));
+  if(!records.length){const p=document.createElement('p');p.className='bc13-note';p.textContent='No journal photos yet. Take your first picture!';jList.append(p);return;}
+  records.forEach(entry=>{
+   const item=document.createElement('article');item.className='bc13-jentry';
+   const photo=document.createElement('img');const url=URL.createObjectURL(entry.image);entryURLs.push(url);photo.src=url;photo.alt='Saved hunting journal photo';
+   const date=document.createElement('small');date.textContent=new Date(entry.time).toLocaleString();
+   const text=document.createElement('p');text.textContent=entry.note||'No notes added';
+   const actions=document.createElement('div');actions.className='bc13-actions';
+   const download=button('','⬇ Download Photo');download.className='bc13-btn';download.onclick=()=>{
+    const a=document.createElement('a');a.href=url;a.download='Buck_Command_Journal_'+entry.time.slice(0,10)+'_'+entry.id.slice(-6)+(entry.image.type==='image/jpeg'?'.jpg':'.png');a.click();
+   };
+   const del=button('','🗑 Delete');del.className='bc13-btn';del.onclick=async()=>{
+    if(!confirm('Delete this journal photo and note from this phone?'))return;
+    try{await deleteEntry(entry.id);await renderJournal();jStatus.textContent='Journal entry deleted.';}catch(err){jStatus.textContent='Delete failed: '+err.message;}
+   };
+   actions.append(download,del);item.append(photo,date,text,actions);jList.append(item);
+  });
+ }catch(err){jStatus.textContent='Journal cannot load: '+err.message;}
+}
+$('bc13Reload').onclick=renderJournal;
+})();
+
+</script>
+
+<dialog class="bc15-dialog" id="bc15Aid" aria-labelledby="bc15AidTitle"><div class="bc15-inner">
+<div class="bc15-head"><div><h2 id="bc15AidTitle">🩹 1st Aid in the Woods</h2><p>Quick reminders for emergencies and common injuries.</p></div><button type="button" class="bc15-x" data-bc15-close="bc15Aid" aria-label="Close">✕</button></div>
+<div class="bc15-warning"><b>Serious injury or immediate danger?</b><p>Call emergency services, describe your location, and follow dispatcher instructions. Do not delay calling while reading this guide.</p><a href="tel:911">☎ Call 911</a></div>
+<details><summary>🩸 Severe Bleeding</summary><p>Call 911. Apply firm, steady direct pressure with a dressing or clean cloth. For life-threatening bleeding from an arm or leg that is not controlled, a properly applied tourniquet may be lifesaving; use training and device instructions. Keep pressure in place until help arrives.</p></details>
+<details><summary>🐍 Venomous Snakebite</summary><p>Seek emergency care immediately. Keep the person calm and movement limited, remove rings and watches before swelling, and cover with a clean dry dressing. Do not cut, suck, ice or tourniquet the bite. Do not handle the snake or drive yourself.</p></details>
+<details><summary>☀️ Heat Illness</summary><p>Move to shade, stop exertion, and cool the person with water and airflow. If alert and able to swallow, provide sips of water. Confusion, collapse, seizures, or altered behavior may indicate heat stroke: call 911 and begin rapid cooling; do not give fluids to someone confused or unconscious.</p></details>
+<details><summary>❄️ Hypothermia</summary><p>Move to shelter, get out of wet clothing, and wrap in dry layers. Warm the body core gently. Severe confusion, unconsciousness or difficulty staying awake requires emergency care. Handle the person gently.</p></details>
+<details><summary>🐝 Sting / Severe Allergic Reaction</summary><p>For mild symptoms, move away from insects, remove the stinger if present, and apply a cool compress. Breathing trouble, tongue/throat swelling, or collapse: call 911 and assist with prescribed epinephrine if available.</p></details>
+<details><summary>🦴 Fall / Possible Fracture</summary><p>Stop activity and support the injured part without attempting to straighten a deformity. For head, neck or spinal injury, severe bleeding, loss of sensation, or serious pain, call 911 and avoid unnecessary movement.</p></details>
+<details><summary>🕷️ Tick Bite</summary><p>Use fine-tipped tweezers to grasp the tick close to the skin and pull steadily. Clean the site and your hands. Do not use heat, nail polish, or petroleum jelly. Seek medical advice if rash, fever, or other symptoms develop.</p></details>
+<details><summary>🧭 Lost or Injured Hunter</summary><p>Stop, stay calm, and move only to a nearby safe location. Call 911 if in danger and share coordinates or recognizable landmarks. Conserve battery. Use a whistle or light to signal rescuers. Buck Command does not send automatic rescue alerts.</p></details>
+<details><summary>❤️ Unresponsive / Not Breathing Normally</summary><p>Call 911 immediately, use speakerphone, and follow the dispatcher's CPR instructions. Start CPR and use an AED if available, according to your training.</p></details>
+<p class="bc15-muted">Reference: <a href="https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines" target="_blank" rel="noopener noreferrer">AHA & Red Cross First Aid</a> · <a href="https://www.cdc.gov/niosh/outdoor-workers/about/venomous-snakes.html" target="_blank" rel="noopener noreferrer">CDC Snakebite</a>. For emergencies, follow trained responders rather than an app.</p>
+</div></dialog>
+<dialog class="bc15-dialog" id="bc15Features" aria-labelledby="bc15FeaturesTitle"><div class="bc15-inner">
+<div class="bc15-head"><div><h2 id="bc15FeaturesTitle">✨ Buck Command Features</h2><p>Choose the tool you want to use.</p></div><button type="button" class="bc15-x" data-bc15-close="bc15Features" aria-label="Close">✕</button></div>
+<div class="bc15-choices">
+<button type="button" class="bc15-btn" data-bc15-go="guardian">🛡️ Guardian <small>Emergency contact, GPS & truck location</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="cameras">📡 Trail Cameras <small>Moultrie-first camera registry and future photo sync</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="journal">📸 Hunt Journal <small>Your phone photos and notes — separate from trail cameras</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="weather">🌦 Weather <small>Current hunting weather and forecast</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="aid">🩹 1st Aid <small>Emergency reference for the woods</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="survey">📝 Beta Survey <small>Tell us what cameras and apps you use</small></button>
+</div>
+<p class="bc15-muted">Guardian's automatic SOS, shared locations and fully offline satellite maps are not connected yet.</p>
+</div></dialog>
+<dialog class="bc15-dialog" id="bc15Cameras" aria-labelledby="bc15CamerasTitle"><div class="bc15-inner">
+<div class="bc15-head"><div><h2 id="bc15CamerasTitle">📡 Wireless Trail Camera Center</h2><p>First priority: Moultrie. Other brands remain future options.</p></div><button type="button" class="bc15-x" data-bc15-close="bc15Cameras" aria-label="Close">✕</button></div>
+<p class="bc15-note">Register your trail cameras here. This is different from Hunt Journal photos taken with your phone. Automatic cellular photo syncing is not connected or promised yet.</p>
+<label class="bc15-label" for="bc15CamName">Camera name</label><input type="text" id="bc15CamName" maxlength="90" placeholder="Creek Bottom Camera">
+<label class="bc15-label" for="bc15CamBrand">Brand</label><select class="bc15-select" id="bc15CamBrand"><option>Moultrie</option><option>Tactacam REVEAL</option><option>Bushnell</option><option>SPYPOINT</option><option>Stealth Cam</option><option>Other</option></select>
+<label class="bc15-label" for="bc15CamModel">Model (optional)</label><input type="text" id="bc15CamModel" maxlength="90" placeholder="EDGE / other model">
+<label class="bc15-label" for="bc15CamSite">Hunting property or location name</label><input type="text" id="bc15CamSite" maxlength="90" placeholder="North Ridge">
+<div class="bc15-actions"><button type="button" class="bc15-btn" id="bc15SaveCam">＋ Save Camera</button></div>
+<p id="bc15CamStatus" class="bc15-muted" role="status" aria-live="polite">Camera details stay in this browser on this device. No Moultrie login or password is needed.</p><h3>My Cameras</h3><div id="bc15CamList"></div>
+<p class="bc15-muted">For current cellular photos and downloads, use the <a href="https://www.moultrie.com/the-app" target="_blank" rel="noopener noreferrer">official Moultrie app</a>. We're exploring a permission-based import route for a later version.</p>
+</div></dialog>
+<dialog class="bc15-dialog" id="bc15Survey" aria-labelledby="bc15SurveyTitle"><div class="bc15-inner">
+<div class="bc15-head"><div><h2 id="bc15SurveyTitle">📝 Buck Command Beta Survey</h2><p>Seven optional questions. Help us decide what to build next.</p></div><button type="button" class="bc15-x" data-bc15-close="bc15Survey" aria-label="Close">✕</button></div>
+<form id="bc15SurveyForm">
+<label class="bc15-label">1. What trail cameras do you own? (select all)</label>
+<div class="bc15-options" id="bc15SurveyCams"><label><input type="checkbox" name="cameras" value="Moultrie"> Moultrie</label><label><input type="checkbox" name="cameras" value="Tactacam"> Tactacam</label><label><input type="checkbox" name="cameras" value="Bushnell"> Bushnell</label><label><input type="checkbox" name="cameras" value="SPYPOINT"> SPYPOINT</label><label><input type="checkbox" name="cameras" value="Stealth Cam"> Stealth Cam</label><label><input type="checkbox" name="cameras" value="Other"> Other</label><label><input type="checkbox" name="cameras" value="None"> None</label></div>
+<label for="bc15HuntFreq" class="bc15-label">2. How often do you hunt?</label>
+<select id="bc15HuntFreq" name="frequency" class="bc15-select"><option value="">Skip</option><option>Several times a week</option><option>Weekly</option><option>Monthly</option><option>Occasionally</option><option>Just getting started</option></select>
+<label class="bc15-label">3. Which hunting apps do you use? (select all)</label>
+<div class="bc15-options"><label><input type="checkbox" name="apps" value="onX Hunt"> onX Hunt</label><label><input type="checkbox" name="apps" value="HuntStand"> HuntStand</label><label><input type="checkbox" name="apps" value="BaseMap"> BaseMap</label><label><input type="checkbox" name="apps" value="Moultrie"> Moultrie</label><label><input type="checkbox" name="apps" value="DeerCast"> DeerCast</label><label><input type="checkbox" name="apps" value="Other"> Other</label><label><input type="checkbox" name="apps" value="None"> None</label></div>
+<label for="bc15State" class="bc15-label">4. What state(s) do you hunt in?</label><input id="bc15State" name="states" type="text" maxlength="120" placeholder="Alabama, Mississippi, Florida…">
+<label for="bc15Club" class="bc15-label">5. Are you in a hunting club?</label>
+<select id="bc15Club" name="club" class="bc15-select"><option value="">Skip</option><option>No</option><option>Member</option><option>President / Manager</option></select>
+<label for="bc15Favorite" class="bc15-label">6. What Buck Command feature interests you most?</label>
+<select id="bc15Favorite" name="feature" class="bc15-select"><option value="">Skip</option><option>Property maps and boundaries</option><option>Wireless trail camera photos</option><option>Weather and wind</option><option>Guardian safety</option><option>Hunt journal</option><option>Club management</option><option>Stand / feeder map markers</option><option>Other</option></select>
+<label for="bc15FeedbackText" class="bc15-label">7. What should we change or add?</label>
+<textarea id="bc15FeedbackText" name="ideas" maxlength="1400" placeholder="Suggestions, problems, feature requests…"></textarea>
+</form>
+<div class="bc15-actions"><button type="button" class="bc15-btn" id="bc15CopySurvey">📋 Copy My Answers</button><button type="button" class="bc15-btn" id="bc15OpenFeedback">✉ Open Existing Feedback Form</button></div>
+<p id="bc15SurveyStatus" class="bc15-muted" role="status" aria-live="polite">The survey is optional. Answers save as a draft in this browser only. Copy your answers, then paste them into the existing feedback form. Nothing is sent automatically.</p>
+</div></dialog>
+
+<script id="bc15-v13i">
+
+(function(){
+'use strict';
+const $=id=>document.getElementById(id),bar=$('mapBottom'),drawer=$('toolDrawer');
+if(!bar||!drawer||$('bc15FeaturesBtn'))return;
+const form=$('bc15SurveyForm'),surveyStatus=$('bc15SurveyStatus');
+const feedbackURL='https://script.google.com/macros/s/AKfycbwWDk6YrFq9RC_CUtuX9y-0VLc6AF3um9-BKdwxRTtRv7-J1QcJI2uh--_k9-Y7veZr/exec';
+function newButton(id,text){const b=document.createElement('button');b.type='button';b.id=id;b.textContent=text;return b;}
+const aidBtn=newButton('bc15AidBtn','🩹 1st Aid'),featuresBtn=newButton('bc15FeaturesBtn','✨ Features');
+const cameraBtn=$('bc13CameraBtn');
+const weatherBtn=$('bc13WeatherBtn');
+if(cameraBtn)cameraBtn.after(aidBtn);else bar.append(aidBtn);
+const moreBtn=$('mapMore');
+if(moreBtn)moreBtn.after(featuresBtn);else bar.append(featuresBtn);
+function open(id){const d=$(id);if(!d)return;d.showModal();}
+function close(id){const d=$(id);if(d?.open)d.close();}
+document.querySelectorAll('[data-bc15-close]').forEach(b=>b.addEventListener('click',()=>close(b.dataset.bc15Close)));
+document.querySelectorAll('dialog.bc15-dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)close(d.id)}));
+aidBtn.onclick=()=>open('bc15Aid');featuresBtn.onclick=()=>open('bc15Features');
+// Journal shortcut opens the journal panel; the user chooses Take Photo inside it.
+if(cameraBtn){cameraBtn.textContent='📸 Journal';cameraBtn.onclick=()=>{$('bc13MoreJournal')?.click()};}
+// Saved Properties should start at top, with no long Search fields above it.
+const properties=$('mapProperties');
+if(properties){
+ properties.onclick=()=>{
+  drawer.classList.remove('show-more');drawer.classList.add('open','bc15-properties-only');
+  $('drawerTitle').textContent='My Saved Properties';drawer.scrollTop=0;
+  requestAnimationFrame(()=>{if(drawer.classList.contains('bc15-properties-only'))drawer.scrollTop=0});
+ };
+}
+document.addEventListener('click',e=>{
+ if(e.target.closest('#mapSearch,#mapCounties,#mapLayers,#mapMore,#mapDraw,#drawerClose,[data-map-tool]'))drawer.classList.remove('bc15-properties-only');
+},true);
+new MutationObserver(()=>{if(!drawer.classList.contains('open'))drawer.classList.remove('bc15-properties-only');}).observe(drawer,{attributes:true,attributeFilter:['class']});
+const actions={
+ guardian:()=>{$('bcHubOpen')?.click();document.querySelector('[data-bcgo="guardian"]')?.click();},
+ cameras:()=>{open('bc15Cameras');renderCams();},
+ journal:()=>{$('bc13MoreJournal')?.click();},
+ weather:()=>weatherBtn?.click(),
+ aid:()=>open('bc15Aid'),
+ survey:()=>open('bc15Survey')
+};
+document.querySelectorAll('[data-bc15-go]').forEach(b=>b.onclick=()=>{close('bc15Features');actions[b.dataset.bc15Go]?.();});
+// Also add an accessible, optional survey alongside the existing feedback form.
+const feedbackStrip=document.querySelector('.bc-feedback-strip');
+if(feedbackStrip){
+ const surveyButton=newButton('bc15FeedbackSurvey','📝 Optional Hunter Survey');
+ surveyButton.style.cssText='display:inline-block;min-height:42px;margin:9px 2px 0;background:#315c43;color:#fff;border:1px solid #c5ad7b;border-radius:10px;padding:10px 13px;font-weight:800;';
+ surveyButton.onclick=()=>{const hub=$('bcHub');hub?.classList.remove('active');open('bc15Survey');};
+ feedbackStrip.append(surveyButton);
+}
+// Guardian setup: new optional local-only fields inside existing Guardian panel.
+const guardian=$('bcGuardian'),gKey='buck-command-guardian-local-settings-v1';
+if(guardian&&!$('bc15GuardianSettings')){
+ const section=document.createElement('section');section.id='bc15GuardianSettings';
+ section.style.cssText='border:1px solid #8d8e66;background:#1c3a2b;border-radius:12px;padding:13px;margin:18px 0';
+ const h=document.createElement('h3');h.textContent='🛡️ My Guardian Setup';section.append(h);
+ const p=document.createElement('p');p.className='bc-note';p.textContent='Emergency contact and check-in details stay on this device. Buck Command does not automatically send SOS messages.';section.append(p);
+ const entries=[['bc15GCName','Emergency contact name','text'],['bc15GCPhone','Emergency contact phone','tel'],['bc15GChannel','Radio / CB channel','text'],['bc15GMeetup','Meet-up and check-in notes','text']];
+ entries.forEach(([id,label,type])=>{
+  const l=document.createElement('label');l.htmlFor=id;l.textContent=label;
+  const inp=document.createElement('input');inp.type=type;inp.id=id;inp.maxLength=type==='tel'?32:160;inp.autocomplete='off';
+  inp.style.cssText='display:block;width:100%;margin:6px 0 12px;padding:10px;border-radius:8px;border:1px solid #78926e;background:#0b2117;color:white';
+  section.append(l,inp);
+ });
+ const save=newButton('bc15GSave','💾 Save Guardian Setup');save.style.cssText='padding:11px;border:1px solid #e4b78e;background:#31543d;color:#fff;border-radius:10px;font-weight:800';
+ const call=document.createElement('a');call.id='bc15GCall';call.textContent='☎ Call Saved Contact';call.hidden=true;call.style.cssText='display:block;color:#ffe2a9;margin:10px 0';
+ const status=document.createElement('p');status.id='bc15GStatus';status.className='bc-note';status.setAttribute('aria-live','polite');status.textContent='No messages sent or shared.';
+ section.append(save,call,status);
+ const back=guardian.querySelector('[data-bcback]');if(back)back.before(section);else guardian.append(section);
+ const ids=entries.map(v=>v[0]);
+ function updateCall(){const v=$('bc15GCPhone').value.replace(/[^\d+]/g,'');if(/^\+?\d{7,16}$/.test(v)){call.hidden=false;call.href='tel:'+v;}else{call.hidden=true;call.removeAttribute('href');}}
+ try{const data=JSON.parse(localStorage.getItem(gKey)||'null');if(data&&typeof data==='object')ids.forEach(id=>{if(typeof data[id]==='string')$(id).value=data[id]});}catch(e){}
+ updateCall();$('bc15GCPhone').addEventListener('input',updateCall);
+ save.onclick=()=>{
+  const data={};ids.forEach(id=>data[id]=$(id).value.trim());
+  try{localStorage.setItem(gKey,JSON.stringify(data));status.textContent='✓ Saved locally on this device only.';updateCall();}catch(e){status.textContent='Unable to save on this device.';}
+ };
+}
+// Moultrie-first camera registry. No photo sync or manufacturer account access.
+const camKey='buck-command-camera-registry-v1';
+function readCams(){try{const v=JSON.parse(localStorage.getItem(camKey)||'[]');return Array.isArray(v)?v.slice(0,50):[]}catch(e){return [];}}
+function renderCams(){
+ const box=$('bc15CamList');box.replaceChildren();
+ const cams=readCams();
+ if(!cams.length){const p=document.createElement('p');p.className='bc15-muted';p.textContent='No wireless cameras saved yet.';box.append(p);}
+ cams.forEach(cam=>{
+  const row=document.createElement('div');row.className='bc15-camera-row';
+  const label=document.createElement('b');label.textContent=cam.name;
+  const detail=document.createElement('small');detail.textContent=[cam.brand,cam.model,cam.site].filter(Boolean).join(' · ');
+  const del=newButton('','Remove Camera');del.className='bc15-btn';del.style.marginTop='9px';
+  del.onclick=()=>{
+   if(!confirm('Remove this camera from Buck Command?'))return;
+   try{localStorage.setItem(camKey,JSON.stringify(readCams().filter(v=>v.id!==cam.id)));renderCams();}catch(e){$('bc15CamStatus').textContent='Could not remove camera on this device.';}
+  };
+  row.append(label,detail,del);box.append(row);
+ });
+}
+$('bc15SaveCam').onclick=()=>{
+ const name=$('bc15CamName').value.trim(),brand=$('bc15CamBrand').value,model=$('bc15CamModel').value.trim(),site=$('bc15CamSite').value.trim();
+ if(!name){$('bc15CamStatus').textContent='Enter a camera name first.';return;}
+ const cams=readCams();if(cams.length>=50){$('bc15CamStatus').textContent='This test supports up to 50 cameras.';return;}
+ cams.push({id:'camera_'+Date.now()+'_'+Math.random().toString(36).slice(2),name,brand,model,site});
+ try{localStorage.setItem(camKey,JSON.stringify(cams));$('bc15CamName').value='';$('bc15CamModel').value='';$('bc15CamSite').value='';$('bc15CamStatus').textContent='✓ Camera saved on this device.';renderCams();}
+ catch(e){$('bc15CamStatus').textContent='Unable to save camera information on this device.';}
+};
+// Survey draft and handoff; don't send to an endpoint not verified for questionnaire fields.
+const surveyKey='buck-command-beta-survey-draft-v1';
+function answers(){
+ const data=new FormData(form);
+ return {cameras:data.getAll('cameras'),frequency:data.get('frequency')||'',apps:data.getAll('apps'),states:String(data.get('states')||'').trim(),club:data.get('club')||'',feature:data.get('feature')||'',ideas:String(data.get('ideas')||'').trim()};
+}
+function surveyText(a){
+ const field=(v)=>Array.isArray(v)?(v.length?v.join(', '):'Skipped'):(v||'Skipped');
+ return ['BUCK COMMAND — OPTIONAL BETA SURVEY',
+ 'Trail cameras: '+field(a.cameras),
+ 'Hunt frequency: '+field(a.frequency),
+ 'Apps used: '+field(a.apps),
+ 'Hunting states: '+field(a.states),
+ 'Club: '+field(a.club),
+ 'Most wanted feature: '+field(a.feature),
+ 'Suggestions: '+field(a.ideas)].join('\n');
+}
+function saveSurvey(){
+ try{localStorage.setItem(surveyKey,JSON.stringify(answers()));surveyStatus.textContent='Draft saved on this device. Copy answers, then open the existing feedback form to paste them. Nothing sent automatically.';}catch(e){surveyStatus.textContent='Draft cannot be saved on this device. Copy answers before leaving.';}
+}
+form.addEventListener('change',saveSurvey);form.addEventListener('input',saveSurvey);
+try{const saved=JSON.parse(localStorage.getItem(surveyKey)||'null');
+ if(saved&&typeof saved==='object'){
+  form.querySelectorAll('input[type=checkbox]').forEach(b=>{if(Array.isArray(saved[b.name]))b.checked=saved[b.name].includes(b.value)});
+  ['frequency','states','club','feature','ideas'].forEach(k=>{const el=form.elements.namedItem(k);if(el&&typeof saved[k]==='string')el.value=saved[k]});
+ }
+}catch(e){}
+$('bc15CopySurvey').onclick=async()=>{
+ const text=surveyText(answers());
+ try{
+  if(!navigator.clipboard?.writeText)throw Error('Clipboard unavailable');
+  await navigator.clipboard.writeText(text);
+  surveyStatus.textContent='✓ Copied! Open the existing feedback form and paste your responses into its comments field. No survey was sent automatically.';
+ }catch(e){
+  const t=document.createElement('textarea');t.value=text;t.readOnly=true;t.style.cssText='width:100%;height:180px;display:block;margin-top:9px';t.setAttribute('aria-label','Copy these survey answers');
+  const old=$('bc15SurveyCopyFallback');old?.remove();t.id='bc15SurveyCopyFallback';
+  surveyStatus.after(t);t.focus();t.select();surveyStatus.textContent='Clipboard access unavailable. Copy the selected text below, then paste it into the feedback form.';
+ }
+};
+$('bc15OpenFeedback').onclick=()=>window.open(feedbackURL,'_blank','noopener,noreferrer');
+})();
+
 </script>
 </body></html>
