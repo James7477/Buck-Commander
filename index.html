@@ -859,7 +859,7 @@ el('parcel').onclick=async()=>{
  const open=()=>{hub.classList.add('active');show(null)};
  const close=()=>hub.classList.remove('active');
  by('bcHubOpen').addEventListener('click',open);
- by('bcFeatureGuide').addEventListener('click',()=>show('help'));
+ by('bcFeatureGuide').addEventListener('click',()=>{close();document.getElementById('bc15FeaturesBtn')?.click();});
  by('v13cHelp').addEventListener('click',()=>{open();show('help')});
  /* Show the four choices whenever the app opens, including returning visitors. */
  open();
@@ -1174,14 +1174,20 @@ $('bc13Reload').onclick=renderJournal;
 <p class="bc15-muted">Reference: <a href="https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines" target="_blank" rel="noopener noreferrer">AHA & Red Cross First Aid</a> · <a href="https://www.cdc.gov/niosh/outdoor-workers/about/venomous-snakes.html" target="_blank" rel="noopener noreferrer">CDC Snakebite</a>. For emergencies, follow trained responders rather than an app.</p>
 </div></dialog>
 <dialog class="bc15-dialog" id="bc15Features" aria-labelledby="bc15FeaturesTitle"><div class="bc15-inner">
-<div class="bc15-head"><div><h2 id="bc15FeaturesTitle">✨ Buck Command Features</h2><p>Choose the tool you want to use.</p></div><button type="button" class="bc15-x" data-bc15-close="bc15Features" aria-label="Close">✕</button></div>
+<div class="bc15-head"><div><h2 id="bc15FeaturesTitle">🦌 What Buck Command Can Do</h2><p>Tap a feature to open it. Alabama property-data tools are labeled below.</p></div><button type="button" class="bc15-x" data-bc15-close="bc15Features" aria-label="Close">✕</button></div>
 <div class="bc15-choices">
-<button type="button" class="bc15-btn" data-bc15-go="guardian">🛡️ Guardian <small>Emergency contact, GPS & truck location</small></button>
-<button type="button" class="bc15-btn" data-bc15-go="cameras">📡 Trail Cameras <small>Moultrie-first camera registry and future photo sync</small></button>
-<button type="button" class="bc15-btn" data-bc15-go="journal">📸 Hunt Journal <small>Your phone photos and notes — separate from trail cameras</small></button>
-<button type="button" class="bc15-btn" data-bc15-go="weather">🌦 Weather <small>Current hunting weather and forecast</small></button>
-<button type="button" class="bc15-btn" data-bc15-go="aid">🩹 1st Aid <small>Emergency reference for the woods</small></button>
-<button type="button" class="bc15-btn" data-bc15-go="survey">📝 Beta Survey <small>Tell us what cameras and apps you use</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="search">⌕ Find a Location <small>Search a street address, use phone GPS, or enter coordinates</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="counties">▧ County Map <small>View Alabama county outlines and select a county</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="layers">◈ Map Layers <small>Show satellite, roads and available Mobile County parcel / owner data</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="properties">⌂ My Properties &amp; Draw <small>Save hunting properties, draw lease boundaries, back up saved places</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="markers">📍 Add to Map <small>Save stands, feeders, trail-camera locations and food plots</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="weather">🌦 Hunt Weather <small>Temperature, feels like, wind direction and three-day forecast</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="journal">📸 Hunt Journal <small>Take phone photos, write notes, and save entries on this device</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="cameras">📡 Wireless Trail Cameras <small>Register Moultrie and other cameras; automatic photo syncing not connected</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="guardian">🛡️ Guardian <small>GPS, saved truck location, emergency contact and check-in notes</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="aid">🩹 Woods 1st Aid <small>Quick emergency references for common outdoor injuries</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="young">🎓 Young Hunter <small>Safety and pre-hunt preparation checklist</small></button>
+<button type="button" class="bc15-btn" data-bc15-go="survey">📝 Beta Survey <small>Tell us about your trail cameras, hunting apps and ideas</small></button>
 </div>
 <p class="bc15-muted">Guardian's automatic SOS, shared locations and fully offline satellite maps are not connected yet.</p>
 </div></dialog>
@@ -1253,11 +1259,17 @@ document.addEventListener('click',e=>{
 },true);
 new MutationObserver(()=>{if(!drawer.classList.contains('open'))drawer.classList.remove('bc15-properties-only');}).observe(drawer,{attributes:true,attributeFilter:['class']});
 const actions={
+ search:()=>{$('mapSearch')?.click();},
+ counties:()=>{$('mapCounties')?.click();},
+ layers:()=>{$('mapLayers')?.click();},
+ properties:()=>{$('mapProperties')?.click();},
+ markers:()=>{$('bc13AddBtn')?.click();},
  guardian:()=>{$('bcHubOpen')?.click();document.querySelector('[data-bcgo="guardian"]')?.click();},
  cameras:()=>{open('bc15Cameras');renderCams();},
  journal:()=>{$('bc13MoreJournal')?.click();},
  weather:()=>weatherBtn?.click(),
  aid:()=>open('bc15Aid'),
+ young:()=>{$('bcHubOpen')?.click();document.querySelector('[data-bcgo="young"]')?.click();},
  survey:()=>open('bc15Survey')
 };
 document.querySelectorAll('[data-bc15-go]').forEach(b=>b.onclick=()=>{close('bc15Features');actions[b.dataset.bc15Go]?.();});
