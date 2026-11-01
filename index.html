@@ -332,7 +332,46 @@ body.bc13-modal-open #mapToolbar,body.bc13-modal-open .overlay,body.bc13-modal-o
 .bc15-muted a{color:#ffe5a5}
 @media(max-width:450px){.bc15-inner{padding:12px}.bc15-choices{gap:7px}.bc15-choices .bc15-btn{padding:9px;min-height:75px;font-size:14px}.bc15-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-</style><script src="https://js.arcgis.com/4.34/"></script></head><body>
+
+/* V13K test USGS scouting modes; original map controls unchanged */
+#bc16Scouting{border:1px solid #b8a36c;border-radius:14px;background:#183d31;padding:12px;margin:12px 0;color:#fff}
+#bc16Scouting h2{margin:0 0 5px;font-size:18px;color:#ffdd9e}
+#bc16Scouting .bc16-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:10px 0}
+#bc16Scouting .bc16-grid button{white-space:normal;min-height:49px;padding:9px 7px;background:#285441;border:1px solid #8fae97;border-radius:10px;color:white;font-size:13px;font-weight:750;cursor:pointer}
+#bc16Scouting .bc16-grid button[aria-pressed="true"]{background:#e4b856;color:#14281f;border-color:#ffdc89}
+#bc16Scouting .bc16-grid button:focus-visible{outline:3px solid #fcebb9;outline-offset:2px}
+#bc16Scouting .bc16-note{font-size:12px;line-height:1.5;color:#d5e7d7;margin:7px 0}
+#bc16Scouting .bc16-notice{font-size:12px;color:#ffe7a3;line-height:1.5;background:#173126;border-left:3px solid #e8b85c;padding:8px;margin:8px 0}
+#bc16Scouting .bc16-source{font-size:11px;line-height:1.45}
+#bc16Scouting .bc16-source a{color:#d8eaff}
+
+/* V13M: accessible one-tap recovery at foot of right-side on-map controls */
+.overlay #bc16ResetMap{
+ background:#a04d2e!important;border:2px solid #f5bf72!important;
+ color:#fff!important;font-weight:850!important;min-height:38px;
+ box-shadow:0 4px 15px #0009;
+}
+.overlay #bc16ResetMap:focus-visible{outline:3px solid #ffeaac;outline-offset:2px}
+
+/* V13R TEST ONLY: version history / roadmap UI; maps and existing controls unchanged */
+.bc17-versionline{margin-top:7px;display:inline-block;padding:5px 9px;border:1px solid #bb9472;border-radius:999px;background:#294635;color:#ffe3a8;font-size:12px;font-weight:800}
+.bc17-versionline span{color:#d6e1d4;font-weight:600}
+#bc17HistoryOpen{display:block;width:100%;text-align:center;margin:9px 0 4px;padding:12px 10px;border:1px solid #a4b38b;border-radius:12px;background:#254b37;color:#fff4d1;font-size:14px;font-weight:850;cursor:pointer}
+#bc17HistoryOpen span{display:block;color:#cdddcf;font-weight:500;font-size:12px;margin-top:3px}
+#bc17HistoryOpen:focus-visible{outline:3px solid #ffde9b;outline-offset:2px}
+#bc17HistoryDialog .bc17-note{color:#d7e2d6;line-height:1.5;font-size:13px;margin:10px 0}
+#bc17HistoryDialog .bc17-group{border:1px solid #66816c;border-radius:13px;background:#203d2d;padding:13px;margin:12px 0}
+#bc17HistoryDialog .bc17-group h3{font-size:17px;color:#ffe2aa;margin:0 0 8px}
+#bc17HistoryDialog .bc17-group p,#bc17HistoryDialog .bc17-group li{font-size:13px;line-height:1.55;color:#f2f2e9}
+#bc17HistoryDialog .bc17-group ul{margin:8px 0 2px;padding-left:21px}
+#bc17HistoryDialog .bc17-version{border-top:1px solid #47654f;padding:9px 0}
+#bc17HistoryDialog .bc17-version:first-of-type{border-top:0;padding-top:0}
+#bc17HistoryDialog .bc17-version b{color:#ffe4a1}
+#bc17HistoryDialog .bc17-status{display:inline-block;border:1px solid #9cae92;border-radius:999px;padding:3px 8px;font-size:11px;color:#f9e1af;font-weight:850}
+#bc17HistoryDialog .bc17-danger{border-color:#cb8b7b;background:#492c2b}
+#bc17HistoryDialog .bc17-danger h3{color:#ffc3b6}
+@media(max-width:450px){#bc17HistoryDialog .bc15-inner{padding:13px}#bc17HistoryDialog .bc17-group{padding:11px}}
+.bc18-launch{display:block;width:100%;margin:9px 0;padding:12px 10px;border:2px solid #dfb780;border-radius:13px;background:#84502c;color:#fff!important;text-align:center;text-decoration:none!important;font-size:15px;font-weight:900;cursor:pointer}.bc18-launch span{display:block;font-size:12px;font-weight:500;color:#ffe5c2;margin-top:4px}.bc18-launch:focus-visible{outline:3px solid #ffe4a2;outline-offset:3px}#bc15Features a.bc15-btn{color:#fff;min-height:80px}</style><script src="https://js.arcgis.com/4.34/"></script></head><body>
 <div class="v13c-welcome" id="v13cWelcome" role="dialog" aria-modal="true" aria-labelledby="v13cTitle" hidden><div class="v13c-card">
 <div class="v13c-emblem" aria-hidden="true">🦌</div><small>BUCK COMMAND · GUARDIAN EDITION</small>
 <h2 id="v13cTitle">Welcome to Your Hunting Map</h2><p>What would you like to do? Pick one. We’ll take you straight there.</p>
@@ -349,8 +388,10 @@ body.bc13-modal-open #mapToolbar,body.bc13-modal-open .overlay,body.bc13-modal-o
 <button id="bcHubOpen" type="button" aria-label="Open Buck Command main menu">☰ Main Menu</button>
 <div id="bcHub" role="dialog" aria-modal="true" aria-label="Buck Command main menu">
  <div id="bcHubContent">
-  <div class="bc-head"><div><b style="font-size:23px;color:#f1ede0">BUCK <span style="color:#dc5261">COMMAND</span></b><div class="bc-note">Choose what you want to do · FREE BETA TESTING</div><div class="bc-holiday-wish" aria-label="Christmas greeting">❄️ 🎄 Merry Christmas from Buck Command! 🦌 ❄️</div></div><button id="bcHubClose" type="button">✕ Close</button></div>
+  <div class="bc-head"><div><b style="font-size:23px;color:#f1ede0">BUCK <span style="color:#dc5261">COMMAND</span></b><div class="bc-note">Choose what you want to do · FREE BETA TESTING</div><div class="bc17-versionline">🦌 V13S LIVE <span>· Free Beta</span></div><div class="bc-holiday-wish" aria-label="Christmas greeting">❄️ 🎄 Merry Christmas from Buck Command! 🦌 ❄️</div></div><button id="bcHubClose" type="button">✕ Close</button></div>
   <button id="bcFeatureGuide" type="button" style="width:100%;display:block;box-sizing:border-box;margin:16px 0 0;padding:15px 12px;border:1px solid #d8b767;border-radius:13px;background:#e0b849;color:#14291f;font-size:16px;font-weight:900;text-align:center;cursor:pointer">📖 CLICK TO SEE FEATURES</button>
+   <a id="bc18Menu" class="bc18-launch" href="./start-hunt.html">🚩 START HUNT / END HUNT<span>Plan return time · Check in · Share with contacts</span></a>
+<button id="bc17HistoryOpen" class="bc17-history-button" type="button">📜 VERSION HISTORY &amp; COMING SOON <span>See what's live, in testing, and planned</span></button>
   <div id="bcMainCards" class="bc-cards">
    <button class="bc-card" data-bcgo="young"><b>🎓 Young Hunter</b><span>Learn skills and practice safety</span></button>
    <button class="bc-card" data-bcgo="pro"><b>🗺️ Hunter Pro</b><span>Find land, mark stands and feeders</span></button>
@@ -370,7 +411,7 @@ body.bc13-modal-open #mapToolbar,body.bc13-modal-open .overlay,body.bc13-modal-o
 <button class="bc-action" type="button" data-bcback>← Back to Main Menu</button></section>
   <section id="bcYoung" class="bc-subpanel"><h2>Young Hunter · Pre-Hunt Safety</h2><p class="bc-note">Learn together with a parent or mentor. These reminders are not hunter-education certification.</p>
    <div id="bcLessons"></div><button class="bc-action" data-bcback>← Back</button></section>
-  <section id="bcGuardian" class="bc-subpanel"><h2>Guardian · Offline Essentials</h2>
+  <section id="bcGuardian" class="bc-subpanel"><h2>Guardian · Offline Essentials</h2><a id="bc18Guardian" class="bc18-launch" href="./start-hunt.html">🚩 Start / End Hunt<span>Save the expected return time</span></a>
    <p class="bc-note">Save a truck or meeting point before leaving service. This page and your notes may work offline only after you have installed and successfully tested offline availability on this device. The live ArcGIS satellite map requires internet.</p>
    <button class="bc-action" id="bcLocate">Use My GPS</button><button class="bc-action" id="bcSavePoint">Save as Truck Location</button>
    <p id="bcGps" aria-live="polite">No current GPS fix requested.</p>
@@ -383,12 +424,96 @@ body.bc13-modal-open #mapToolbar,body.bc13-modal-open .overlay,body.bc13-modal-o
   <section id="bcClub" class="bc-subpanel"><h2>Club Command</h2><p>Club memberships, bookings and live check-ins are planned—not connected yet. No members are being tracked or billed.</p><button class="bc-action" data-bcback>← Back</button></section>
  </div>
 </div>
-<div class="shell"><aside id="toolDrawer"><div id="drawerTop"><strong id="drawerTitle">Map Tools</strong><button type="button" id="drawerClose">◀ Hide Panel</button></div><div class="quicktools" id="quickTools"><h2>Add to Your Hunting Map</h2><p class="muted">Pick a tool, enter a name, then tap its location on the map.</p><div class="quickgrid"><button type="button" data-quick-marker="stand">+ Stand</button><button type="button" data-quick-marker="feeder">+ Feeder</button><button type="button" data-quick-marker="camera">+ Camera</button><button type="button" data-quick-marker="plot">+ Food Plot</button></div><div id="quickStatus" class="muted">Save or open a property once before adding markers.</div></div><h2>Find a street address</h2><label for="street">Street number and road</label><input id="street" placeholder="380 New York Street"><div id="addressSuggest" class="suggestions" role="listbox" aria-label="Address suggestions" hidden></div><label for="city">City</label><input id="city" placeholder="Mount Vernon"><label for="state">State</label><input id="state" value="AL" placeholder="AL"><label for="zip">ZIP</label><input id="zip" inputmode="numeric" placeholder="36560" maxlength="5"><div class="buttons"><button id="search">Find Address</button><button id="gps" class="secondary">Use Phone GPS</button></div><label>Latitude / Longitude</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><input id="lat" placeholder="31.0857"><input id="lon" placeholder="-88.0092"></div><div class="buttons"><button id="coord" class="secondary">Go to Coordinates</button><button id="parcel" class="secondary">Find Parcel at Pin</button></div><label class="toggle"><input type="checkbox" id="parcels"> Show Property Boundaries</label><label class="toggle"><input type="checkbox" id="owners"> Show Property Owners</label><div class="savepanel"><h2>Hunting County</h2><label for="countySelect">Alabama county</label><select id="countySelect"><option value="">Choose a county…</option></select><label class="toggle"><input type="checkbox" id="countyBounds"> Show County Boundaries</label><div id="countyStatus" class="muted" style="font-size:12px;margin-top:8px">Choose a county to show its full outline.</div></div><div class="savepanel"><h2>Draw My Hunting Property</h2><p class="muted">Outline your actual lease, even if it crosses tax parcels. Click or tap corners on the map. Use 2D for easiest drawing.</p><div class="buttons"><button id="startDrawing">Start Drawing</button><button id="undoPoint" class="secondary">Undo Point</button><button id="finishDrawing" class="secondary">Finish Outline</button><button id="clearDrawing" class="secondary">Clear Outline</button></div><div id="drawInfo" class="status">No lease outline drawn.</div><p class="muted">After finishing, enter a name below and click Save Current Property. This saves the outline together with the property bookmark.</p></div><div class="savepanel" id="huntingRecordPanel"><h2>Hunting Records</h2><p class="muted">Open or save a property first. Choose a marker type, complete its details, then tap the map. Select an existing marker to edit its record.</p><label for="markerType">Marker type</label><select id="markerType"><option value="stand">Hunting Stand</option><option value="feeder">Feeder</option><option value="camera">Trail Camera</option><option value="plot">Food Plot</option></select><label for="markerName">Name</label><input id="markerName" maxlength="80" placeholder="North Ridge Stand"><label for="markerNote">Notes (optional)</label><input id="markerNote" maxlength="240" placeholder="Access route, batteries, feed, etc."><div id="markerRecordFields" style="padding:10px 0"><label for="markerCondition">Condition / status</label><select id="markerCondition"><option value="Good">Good</option><option value="Needs attention">Needs attention</option><option value="Out of service">Out of service</option></select><label for="markerServiceDate">Last checked / serviced</label><input id="markerServiceDate" type="date"><label for="markerNextDate">Next check / maintenance</label><input id="markerNextDate" type="date"><div id="standFields"><label for="standType">Stand type</label><select id="standType"><option>Ladder</option><option>Box blind</option><option>Tripod</option><option>Ground blind</option><option>Climber</option><option>Other</option></select></div><div id="feederFields" hidden><label for="feedType">Feed type</label><input id="feedType" maxlength="60" placeholder="Corn / protein"><label for="feedAmount">Last fill amount (lb)</label><input id="feedAmount" type="number" min="0" max="99999" step="0.1" placeholder="50"></div><div id="cameraFields" hidden><label for="cameraBrand">Brand / model</label><input id="cameraBrand" maxlength="100" placeholder="Tactacam REVEAL"><label for="cameraBattery">Battery (%)</label><input id="cameraBattery" type="number" min="0" max="100" step="1" placeholder="85"><label for="cameraSightings">Recent deer sightings</label><input id="cameraSightings" type="number" min="0" max="99999" step="1" placeholder="0"></div><div id="plotFields" hidden><label for="plotAcres">Plot size (acres)</label><input id="plotAcres" type="number" min="0" max="100000" step="0.01" placeholder="1.5"><label for="plotSeed">Seed / crop</label><input id="plotSeed" maxlength="100" placeholder="Clover"><label for="plotPlantDate">Planting date</label><input id="plotPlantDate" type="date"></div></div><div class="buttons"><button id="saveMarkerChanges" class="secondary">Save Marker Changes</button><button id="clearMarkerForm" class="secondary">New Marker</button></div><div class="buttons"><button id="placeMarker">Place Marker on Map</button><button id="cancelMarker" class="secondary">Cancel</button></div><label for="markerList">Saved markers on this property</label><select id="markerList"><option value="">No marker selected</option></select><div class="buttons"><button id="goMarker" class="secondary">Go to Marker</button><button id="removeMarker" class="secondary">Remove Marker</button></div><div id="markerStatus" class="status">Select or save a property to begin.</div></div><div class="savepanel" id="propertiesPanel"><h2>My Saved Properties</h2><label for="propertyName">Property name</label><input id="propertyName" maxlength="100" placeholder="Creek Bottom Lease"><div class="buttons"><button id="saveProperty">Save Current Property</button><button id="showProperties" class="secondary">Refresh List</button></div><label for="savedProperties">Open a saved property</label><select id="savedProperties"><option value="">No saved property selected</option></select><div class="buttons"><button id="openProperty" class="secondary">Open Selected</button><button id="deleteProperty" class="secondary">Delete Selected</button></div><div class="buttons"><button id="exportProperties" class="secondary">Export Backup</button><button id="importProperties" class="secondary">Import Backup</button></div><input id="importFile" type="file" accept="application/json,.json" hidden><p class="muted">Saves only in this browser. Export a backup before clearing browser data. Manually drawn lease outlines ARE included in backups; county ownership and official tax parcel boundaries are not.</p></div><details class="savepanel"><summary>Advanced Parcel Diagnostics</summary><div class="buttons"><button id="testCounty" class="secondary">Test Mobile County Data</button></div><div class="buttons"><button id="probeParcel" class="secondary">Diagnose Parcel at Pin</button><button id="inspectGeometry" class="secondary">Inspect Returned Shapes</button></div><div id="shapeResult" class="status" aria-live="polite">Geometry check not run yet.</div><div id="probeResult" class="status" aria-live="polite">No location diagnosis run yet.</div></details><details class="savepanel"><summary>Map Status</summary><h2>County data connection</h2><div id="connectionStatus" class="status" aria-live="polite">Not checked yet. Connection will be tested when boundaries or owner lookup is used.</div><h2>Parcel overlay</h2><div id="overlayStatus" class="status" aria-live="polite">Boundaries off · open Layers to show them</div><h2>Lookup status</h2><div id="status" class="status" aria-live="polite">Loading map…</div></details><div class="info">Parcel boundaries are approximate, not legal surveys. Confirm hunting permission with the landowner.</div></aside><section><div id="viewDiv"></div><div id="view2d"></div><div class="quality-note" id="qualityReadout">3D quality: High. Use 2D Satellite to compare the same spot.</div><div class="overlay"><button id="twoD">2D Satellite</button><button id="threeD">3D Terrain</button><button id="quality" class="secondary">3D Quality: High</button><button id="hybrid" class="secondary">Satellite + Roads</button></div></section></div>
+<div class="shell"><aside id="toolDrawer"><div id="drawerTop"><strong id="drawerTitle">Map Tools</strong><button type="button" id="drawerClose">◀ Hide Panel</button></div><div class="quicktools" id="quickTools"><h2>Add to Your Hunting Map</h2><p class="muted">Pick a tool, enter a name, then tap its location on the map.</p><div class="quickgrid"><button type="button" data-quick-marker="stand">+ Stand</button><button type="button" data-quick-marker="feeder">+ Feeder</button><button type="button" data-quick-marker="camera">+ Camera</button><button type="button" data-quick-marker="plot">+ Food Plot</button></div><div id="quickStatus" class="muted">Save or open a property once before adding markers.</div></div><h2>Find a street address</h2><label for="street">Street number and road</label><input id="street" placeholder="380 New York Street"><div id="addressSuggest" class="suggestions" role="listbox" aria-label="Address suggestions" hidden></div><label for="city">City</label><input id="city" placeholder="Mount Vernon"><label for="state">State</label><input id="state" value="AL" placeholder="AL"><label for="zip">ZIP</label><input id="zip" inputmode="numeric" placeholder="36560" maxlength="5"><div class="buttons"><button id="search">Find Address</button><button id="gps" class="secondary">Use Phone GPS</button></div><label>Latitude / Longitude</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><input id="lat" placeholder="31.0857"><input id="lon" placeholder="-88.0092"></div><div class="buttons"><button id="coord" class="secondary">Go to Coordinates</button><button id="parcel" class="secondary">Find Parcel at Pin</button></div><label class="toggle"><input type="checkbox" id="parcels"> Show Property Boundaries</label><label class="toggle"><input type="checkbox" id="owners"> Show Property Owners</label>
+
+<div id="bc16Scouting" class="savepanel" aria-label="USGS experimental scouting map layers">
+<h2>🛰️ Scouting Maps — TEST</h2>
+<p class="bc16-note">Our original satellite imagery stays the default for closer, sharper zooming. USGS aerial and terrain views are optional for comparing scouting features.</p>
+<div class="bc16-grid" role="group" aria-label="Choose a scouting layer">
+<button type="button" data-bc16-mode="satellite" aria-pressed="true">🛰️ Original Satellite · Default</button>
+<button type="button" data-bc16-mode="aerial" aria-pressed="false">📷 USGS Aerial</button>
+<button type="button" data-bc16-mode="lidar" aria-pressed="false">⛰️ LiDAR Hillshade</button>
+<button type="button" data-bc16-mode="topo" aria-pressed="false">🗻 Topo + Contours</button>
+</div>
+<p class="bc16-notice" id="bc16ModeStatus" role="status" aria-live="polite">Original satellite selected. Zoom in as far as this basemap allows. USGS scouting layers are optional.</p>
+<p class="bc16-note">USGS cached photos reach their maximum native detail around zoom 16. Going closer only enlarges existing pixels, so these optional layers stop there to avoid blur. Choose Original Satellite to zoom in farther. USGS relief may be based on LiDAR or other terrain measurements; internet required.</p>
+<p class="bc16-source">Official cached services: <a href="https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer" target="_blank" rel="noopener noreferrer">USGS Aerial</a> · <a href="https://basemap.nationalmap.gov/arcgis/rest/services/USGSShadedReliefOnly/MapServer" target="_blank" rel="noopener noreferrer">USGS Shaded Relief</a> · <a href="https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer" target="_blank" rel="noopener noreferrer">USGS Topo</a>. Not a legal property survey.</p>
+</div>
+<div class="savepanel"><h2>Hunting County</h2><label for="countySelect">Alabama county</label><select id="countySelect"><option value="">Choose a county…</option></select><label class="toggle"><input type="checkbox" id="countyBounds"> Show County Boundaries</label><div id="countyStatus" class="muted" style="font-size:12px;margin-top:8px">Choose a county to show its full outline.</div></div><div class="savepanel"><h2>Draw My Hunting Property</h2><p class="muted">Outline your actual lease, even if it crosses tax parcels. Click or tap corners on the map. Use 2D for easiest drawing.</p><div class="buttons"><button id="startDrawing">Start Drawing</button><button id="undoPoint" class="secondary">Undo Point</button><button id="finishDrawing" class="secondary">Finish Outline</button><button id="clearDrawing" class="secondary">Clear Outline</button></div><div id="drawInfo" class="status">No lease outline drawn.</div><p class="muted">After finishing, enter a name below and click Save Current Property. This saves the outline together with the property bookmark.</p></div><div class="savepanel" id="huntingRecordPanel"><h2>Hunting Records</h2><p class="muted">Open or save a property first. Choose a marker type, complete its details, then tap the map. Select an existing marker to edit its record.</p><label for="markerType">Marker type</label><select id="markerType"><option value="stand">Hunting Stand</option><option value="feeder">Feeder</option><option value="camera">Trail Camera</option><option value="plot">Food Plot</option></select><label for="markerName">Name</label><input id="markerName" maxlength="80" placeholder="North Ridge Stand"><label for="markerNote">Notes (optional)</label><input id="markerNote" maxlength="240" placeholder="Access route, batteries, feed, etc."><div id="markerRecordFields" style="padding:10px 0"><label for="markerCondition">Condition / status</label><select id="markerCondition"><option value="Good">Good</option><option value="Needs attention">Needs attention</option><option value="Out of service">Out of service</option></select><label for="markerServiceDate">Last checked / serviced</label><input id="markerServiceDate" type="date"><label for="markerNextDate">Next check / maintenance</label><input id="markerNextDate" type="date"><div id="standFields"><label for="standType">Stand type</label><select id="standType"><option>Ladder</option><option>Box blind</option><option>Tripod</option><option>Ground blind</option><option>Climber</option><option>Other</option></select></div><div id="feederFields" hidden><label for="feedType">Feed type</label><input id="feedType" maxlength="60" placeholder="Corn / protein"><label for="feedAmount">Last fill amount (lb)</label><input id="feedAmount" type="number" min="0" max="99999" step="0.1" placeholder="50"></div><div id="cameraFields" hidden><label for="cameraBrand">Brand / model</label><input id="cameraBrand" maxlength="100" placeholder="Tactacam REVEAL"><label for="cameraBattery">Battery (%)</label><input id="cameraBattery" type="number" min="0" max="100" step="1" placeholder="85"><label for="cameraSightings">Recent deer sightings</label><input id="cameraSightings" type="number" min="0" max="99999" step="1" placeholder="0"></div><div id="plotFields" hidden><label for="plotAcres">Plot size (acres)</label><input id="plotAcres" type="number" min="0" max="100000" step="0.01" placeholder="1.5"><label for="plotSeed">Seed / crop</label><input id="plotSeed" maxlength="100" placeholder="Clover"><label for="plotPlantDate">Planting date</label><input id="plotPlantDate" type="date"></div></div><div class="buttons"><button id="saveMarkerChanges" class="secondary">Save Marker Changes</button><button id="clearMarkerForm" class="secondary">New Marker</button></div><div class="buttons"><button id="placeMarker">Place Marker on Map</button><button id="cancelMarker" class="secondary">Cancel</button></div><label for="markerList">Saved markers on this property</label><select id="markerList"><option value="">No marker selected</option></select><div class="buttons"><button id="goMarker" class="secondary">Go to Marker</button><button id="removeMarker" class="secondary">Remove Marker</button></div><div id="markerStatus" class="status">Select or save a property to begin.</div></div><div class="savepanel" id="propertiesPanel"><h2>My Saved Properties</h2><label for="propertyName">Property name</label><input id="propertyName" maxlength="100" placeholder="Creek Bottom Lease"><div class="buttons"><button id="saveProperty">Save Current Property</button><button id="showProperties" class="secondary">Refresh List</button></div><label for="savedProperties">Open a saved property</label><select id="savedProperties"><option value="">No saved property selected</option></select><div class="buttons"><button id="openProperty" class="secondary">Open Selected</button><button id="deleteProperty" class="secondary">Delete Selected</button></div><div class="buttons"><button id="exportProperties" class="secondary">Export Backup</button><button id="importProperties" class="secondary">Import Backup</button></div><input id="importFile" type="file" accept="application/json,.json" hidden><p class="muted">Saves only in this browser. Export a backup before clearing browser data. Manually drawn lease outlines ARE included in backups; county ownership and official tax parcel boundaries are not.</p></div><details class="savepanel"><summary>Advanced Parcel Diagnostics</summary><div class="buttons"><button id="testCounty" class="secondary">Test Mobile County Data</button></div><div class="buttons"><button id="probeParcel" class="secondary">Diagnose Parcel at Pin</button><button id="inspectGeometry" class="secondary">Inspect Returned Shapes</button></div><div id="shapeResult" class="status" aria-live="polite">Geometry check not run yet.</div><div id="probeResult" class="status" aria-live="polite">No location diagnosis run yet.</div></details><details class="savepanel"><summary>Map Status</summary><h2>County data connection</h2><div id="connectionStatus" class="status" aria-live="polite">Not checked yet. Connection will be tested when boundaries or owner lookup is used.</div><h2>Parcel overlay</h2><div id="overlayStatus" class="status" aria-live="polite">Boundaries off · open Layers to show them</div><h2>Lookup status</h2><div id="status" class="status" aria-live="polite">Loading map…</div></details><div class="info">Parcel boundaries are approximate, not legal surveys. Confirm hunting permission with the landowner.</div></aside><section><div id="viewDiv"></div><div id="view2d"></div><div class="quality-note" id="qualityReadout">3D quality: High. Use 2D Satellite to compare the same spot.</div><div class="overlay"><button id="twoD">2D Satellite</button><button id="threeD">3D Terrain</button><button id="quality" class="secondary">3D Quality: High</button><button id="hybrid" class="secondary">Satellite + Roads</button><button id="bc16ResetMap" class="secondary" type="button" title="Reload the map and restore satellite. Saved data remains; unsaved drawing changes are lost.">↻ Reset Map</button></div></section></div>
 <script>
 (function(){'use strict';
 const el=id=>document.getElementById(id),status=msg=>{el('status').textContent=msg},connectionStatus=msg=>{el('connectionStatus').textContent=msg},overlayStatus=msg=>{el('overlayStatus').textContent=msg};let view,map,parcelLayer,marker,locationPoint=null,sceneView,flatView,is2D=false,qualityHigh=true;const parcelUrl='https://services8.arcgis.com/HND1NcQt6vgOGn1z/ArcGIS/rest/services/MCRC_Public_Parcels/FeatureServer/1';
-require(['esri/Map','esri/views/SceneView','esri/views/MapView','esri/layers/FeatureLayer','esri/Graphic','esri/geometry/Point','esri/layers/GraphicsLayer'],function(Map,SceneView,MapView,FeatureLayer,Graphic,Point,GraphicsLayer){
+require(['esri/Map','esri/views/SceneView','esri/views/MapView','esri/layers/FeatureLayer','esri/Graphic','esri/geometry/Point','esri/layers/GraphicsLayer','esri/layers/TileLayer'],function(Map,SceneView,MapView,FeatureLayer,Graphic,Point,GraphicsLayer,TileLayer){
 map=new Map({basemap:'satellite',ground:'world-elevation'});
+
+
+/* V13N TEST: Cached USGS map tiles instead of on-demand ImageServer exports.
+   USGS confirmed cached services top out near 1:9,028 (~zoom 16).
+   3DEP shaded relief is not guaranteed to be from LiDAR in every location. */
+const bc16Layers={
+ aerial:new TileLayer({
+   url:'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer',
+   title:'USGS Aerial - Cached NAIP and other imagery',visible:true,opacity:1
+ }),
+ lidar:new TileLayer({
+   url:'https://basemap.nationalmap.gov/arcgis/rest/services/USGSShadedReliefOnly/MapServer',
+   title:'USGS 3DEP Shaded Relief - Cached',visible:true,opacity:1
+ }),
+ topo:new TileLayer({
+   url:'https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer',
+   title:'USGS Topo - Contours and roads',visible:true,opacity:1
+ })
+};
+let bc16Mode='satellite',bc16Request=0;
+const bc16Labels={aerial:'USGS cached aerial imagery',lidar:'USGS 3DEP terrain relief',topo:'USGS topographic map'};
+const bc16Message=message=>{const target=el('bc16ModeStatus');if(target)target.textContent=message;};
+function bc16SyncButtons(){
+ document.querySelectorAll('[data-bc16-mode]').forEach(b=>
+  b.setAttribute('aria-pressed',String(b.dataset.bc16Mode===bc16Mode)));
+}
+function bc16DetachLayers(){
+ for(const layer of Object.values(bc16Layers))if(map.layers.indexOf(layer)!==-1)map.remove(layer);
+ if(flatView?.constraints)flatView.constraints.maxZoom=-1;
+}
+function bc16TurnOff(reason){
+ ++bc16Request;
+ bc16DetachLayers();bc16Mode='satellite';bc16SyncButtons();
+ bc16Message(reason||'Original satellite restored. Zoom in normally; saved stands and properties remain unchanged.');
+}
+async function bc16Select(next){
+ if(!['satellite','aerial','lidar','topo'].includes(next))return;
+ if(next==='satellite'){bc16TurnOff();return;}
+ const token=++bc16Request,layer=bc16Layers[next];
+ bc16Message('Connecting to '+bc16Labels[next]+'…');
+ try{
+   if(!is2D)await switchMode(true);
+   if(token!==bc16Request)return;
+   if(!is2D)throw Error('2D mode could not be loaded');
+   // Prevent requesting unavailable cached tiles at levels 17+.
+   bc16DetachLayers();
+   flatView.constraints.maxZoom=16;
+   if(Number.isFinite(flatView.zoom)&&flatView.zoom>16)
+     await flatView.goTo({zoom:16},{animate:false});
+   if(token!==bc16Request)return;
+   await layer.load();
+   if(token!==bc16Request)return;
+   map.add(layer,0);
+   await Promise.race([
+     flatView.whenLayerView(layer),
+     new Promise((_,reject)=>setTimeout(()=>reject(Error('USGS tile service did not respond in time')),12000))
+   ]);
+   if(token!==bc16Request){if(map.layers.indexOf(layer)!==-1)map.remove(layer);return;}
+   bc16Mode=next;bc16SyncButtons();
+   bc16Message(bc16Labels[next]+' selected. USGS source imagery ends around zoom 16, so this view stops there to avoid blur. Original Satellite offers closer zoom.');
+ }catch(err){
+   if(token!==bc16Request)return;
+   bc16DetachLayers();bc16Mode='satellite';bc16SyncButtons();
+   bc16Message('USGS cached map unavailable on this connection: '+(err?.message||String(err))+'. Original satellite restored. You can open the official service below.');
+ }
+}
+document.querySelectorAll('[data-bc16-mode]').forEach(b=>b.addEventListener('click',()=>bc16Select(b.dataset.bc16Mode)));
+bc16SyncButtons();
+
 parcelLayer=new FeatureLayer({url:parcelUrl,visible:false,outFields:['*'],opacity:1,renderer:{type:'simple',symbol:{type:'simple-fill',color:[0,0,0,0],outline:{color:[255,208,52,.95],width:1.4}}},popupTemplate:{title:'Mobile County tax parcel',content:[{type:'fields',fieldInfos:[]}]}});map.add(parcelLayer);
 const countyUrl='https://adecagis.alabama.gov/adecaweb/rest/services/Counties/MapServer/0';
 const alCountyLayer=new FeatureLayer({url:countyUrl,visible:false,outFields:['NAMELSAD','GEOID'],definitionExpression:"1=1",renderer:{type:'simple',symbol:{type:'simple-fill',color:[0,0,0,0],outline:{color:[0,218,237,1],width:2.8}}},title:'Alabama County Boundary'});
@@ -448,7 +573,8 @@ el('street').addEventListener('input',()=>{
 });
 const leaseOverlay=new GraphicsLayer({title:"My saved hunting lease outline"});map.add(leaseOverlay);
 const boundaryOverlay=new GraphicsLayer({title:'Nearby county parcel outlines'}),selectedOverlay=new GraphicsLayer({title:'Selected parcel'}),ownerLabels=new GraphicsLayer({title:'Recorded parcel owner names'});map.addMany([boundaryOverlay,selectedOverlay,ownerLabels]);
-sceneView=new SceneView({container:'viewDiv',map,qualityProfile:'high',center:[-88.08,31.08],zoom:11,camera:{position:{longitude:-88.08,latitude:31.08,z:23000},tilt:0,heading:0},environment:{atmosphereEnabled:true}});view=sceneView;flatView=new MapView({container:'view2d',map,center:[-88.08,31.08],zoom:11});
+sceneView=new SceneView({container:'viewDiv',map,qualityProfile:((window.matchMedia&&window.matchMedia('(pointer: coarse)').matches)?'medium':'high'),center:[-88.08,31.08],zoom:11,camera:{position:{longitude:-88.08,latitude:31.08,z:23000},tilt:0,heading:0},environment:{atmosphereEnabled:true}});view=sceneView;flatView=new MapView({container:'view2d',map,center:[-88.08,31.08],zoom:11});
+if(sceneView.qualityProfile==='medium'){qualityHigh=false;el('quality').textContent='3D Quality: Medium';el('qualityReadout').textContent='Mobile-friendly 3D quality: Medium';}
 function mark(lon,lat,label){locationPoint=new Point({longitude:lon,latitude:lat});sceneView.graphics.removeAll();flatView.graphics.removeAll();marker=new Graphic({geometry:locationPoint,symbol:{type:'point-3d',symbolLayers:[{type:'icon',resource:{primitive:'circle'},material:{color:'#ff9c2d'},size:17,outline:{color:'#fff',size:2}}]},popupTemplate:{title:label||'Selected location',content:`Latitude ${lat.toFixed(6)}, Longitude ${lon.toFixed(6)}`}});sceneView.graphics.add(marker);flatView.graphics.add(new Graphic({geometry:locationPoint,symbol:{type:'simple-marker',color:'#ff9c2d',size:14,outline:{color:'#fff',width:2}}}));el('lat').value=lat.toFixed(6);el('lon').value=lon.toFixed(6)}
 async function travel(lon,lat,zoom=15){await view.goTo({target:[lon,lat],zoom},{duration:1100})}
 async function switchMode(to2D){
@@ -459,10 +585,13 @@ async function switchMode(to2D){
   const zoom=previous.zoom;
   if(!center||!Number.isFinite(zoom)) throw new Error('Current view is not ready yet.');
   const target=to2D?flatView:sceneView;
-  // Both views always keep valid, full-size containers. Only visibility changes.
-  // Await readiness while target is hidden via visibility:hidden (not display:none).
+  // Never render dynamic USGS imagery through the 3D renderer. Those layers
+  // share the map with both views and can exhaust mobile GPU memory.
+  if(!to2D && bc16Mode!=='satellite')bc16TurnOff('Switched to 3D terrain; USGS layers are 2D-only.');
+  // Keep the two original views mounted, but avoid extreme 3D camera zoom.
   await target.when();
-  await target.goTo({center,zoom,...(to2D?{}:{tilt:67})},{animate:false});
+  const safeZoom=to2D?Math.min(zoom,18):Math.min(zoom,16);
+  await target.goTo({center,zoom:safeZoom,...(to2D?{}:{tilt:45})},{animate:false});
   el('viewDiv').style.visibility=to2D?'hidden':'visible';
   el('viewDiv').style.pointerEvents=to2D?'none':'auto';
   el('view2d').style.visibility=to2D?'visible':'hidden';
@@ -1184,6 +1313,7 @@ $('bc13Reload').onclick=renderJournal;
 <button type="button" class="bc15-btn" data-bc15-go="weather">🌦 Hunt Weather <small>Temperature, feels like, wind direction and three-day forecast</small></button>
 <button type="button" class="bc15-btn" data-bc15-go="journal">📸 Hunt Journal <small>Take phone photos, write notes, and save entries on this device</small></button>
 <button type="button" class="bc15-btn" data-bc15-go="cameras">📡 Wireless Trail Cameras <small>Register Moultrie and other cameras; automatic photo syncing not connected</small></button>
+<a class="bc15-btn" href="./start-hunt.html" style="display:block;text-decoration:none">🚩 Start / End Hunt <small>Start time, expected return, three contacts and check-ins</small></a>
 <button type="button" class="bc15-btn" data-bc15-go="guardian">🛡️ Guardian <small>GPS, saved truck location, emergency contact and check-in notes</small></button>
 <button type="button" class="bc15-btn" data-bc15-go="aid">🩹 Woods 1st Aid <small>Quick emergency references for common outdoor injuries</small></button>
 <button type="button" class="bc15-btn" data-bc15-go="young">🎓 Young Hunter <small>Safety and pre-hunt preparation checklist</small></button>
@@ -1255,9 +1385,9 @@ if(properties){
  };
 }
 document.addEventListener('click',e=>{
- if(e.target.closest('#mapSearch,#mapCounties,#mapLayers,#mapMore,#mapDraw,#drawerClose,[data-map-tool]'))drawer.classList.remove('bc15-properties-only');
+ if(e.target.closest('#mapSearch,#mapCounties,#mapLayers,#mapMore,#mapDraw,#drawerClose,[data-map-tool]') && drawer.classList.contains('bc15-properties-only'))drawer.classList.remove('bc15-properties-only');
 },true);
-new MutationObserver(()=>{if(!drawer.classList.contains('open'))drawer.classList.remove('bc15-properties-only');}).observe(drawer,{attributes:true,attributeFilter:['class']});
+new MutationObserver(()=>{if(!drawer.classList.contains('open') && drawer.classList.contains('bc15-properties-only'))drawer.classList.remove('bc15-properties-only');}).observe(drawer,{attributes:true,attributeFilter:['class']});
 const actions={
  search:()=>{$('mapSearch')?.click();},
  counties:()=>{$('mapCounties')?.click();},
@@ -1379,4 +1509,87 @@ $('bc15OpenFeedback').onclick=()=>window.open(feedbackURL,'_blank','noopener,nor
 })();
 
 </script>
+
+<script id="bc16-reset-map-recovery">
+(function(){
+ 'use strict';
+ const button=document.getElementById('bc16ResetMap');
+ if(button)button.addEventListener('click',function(){
+   button.disabled=true;
+   button.textContent='↻ Restarting Map…';
+   try{sessionStorage.setItem('bc16-reset-from-map','1')}catch(_){}
+   // Reload reconstructs a damaged ArcGIS WebGL canvas. User-saved data lives
+   // in storage and is not cleared. Unsaved map drawing is not preserved.
+   window.location.reload();
+ });
+ try{
+  if(sessionStorage.getItem('bc16-reset-from-map')==='1'){
+   sessionStorage.removeItem('bc16-reset-from-map');
+   document.getElementById('bcHub')?.classList.remove('active');
+  }
+ }catch(_){}
+})();
+</script>
+
+<!-- Buck Command V13R test: read-only version history and roadmap; NO Man Down monitoring or alerts -->
+<dialog class="bc15-dialog" id="bc17HistoryDialog" aria-labelledby="bc17HistoryTitle">
+  <div class="bc15-inner">
+    <div class="bc15-head">
+      <div><h2 id="bc17HistoryTitle">📜 Version History &amp; Coming Soon</h2><p>Buck Command — Guardian Edition</p></div>
+      <button type="button" class="bc15-x" id="bc17HistoryClose" aria-label="Close version history">✕</button>
+    </div>
+    <p class="bc17-note"><span class="bc17-status">V13S — LIVE BETA</span> Buck Command V13S is published. Experimental map views are optional; features listed as planned are not active.</p>
+    <section class="bc17-group" aria-label="Live release history">
+      <h3>✅ Live — V13S and earlier</h3>
+<div class="bc17-version"><b>V13S — Start / End Hunt</b><p>Hunt start, estimated return, three local safety contacts, manual check-ins, time extensions, saved GPS, manual SMS drafts and End Hunt. Emergency alerting is not automatic.</p></div>
+<div class="bc17-version"><b>V13R — Version History</b><p>Version information, feature history and future roadmap.</p></div>
+      <div class="bc17-version"><b>V13J — Feature Guide</b><p>Main Menu’s “Click to See Features” opens the actual feature catalog, separate from the Help questions.</p></div>
+      <div class="bc17-version"><b>V13I — Safety &amp; Feedback</b><p>First-aid reference, beta survey, trail-camera registration preview, and Guardian refinements. Cellular camera syncing and automatic SOS are not connected.</p></div>
+      <div class="bc17-version"><b>V13H — Hunting Tools</b><p>Hunt Weather and on-device Hunt Journal photos and notes.</p></div>
+      <div class="bc17-version"><b>V13F — Command Center</b><p>Young Hunter checklist, Hunter Pro, Guardian GPS/truck location, and a Club Command roadmap.</p></div>
+      <div class="bc17-version"><b>V13A–D — Mapping &amp; Design</b><p>Improved map-first layout, mobile controls, branding, header and Help access.</p></div>
+    </section>
+    <section class="bc17-group" aria-label="Current tests">
+      <h3>🧪 Optional / Experimental Map Features — V13K–Q</h3>
+      <div class="bc17-version"><b>V13K–L</b><p>Optional USGS aerial and terrain layers, plus Properties panel Hide fix.</p></div>
+      <div class="bc17-version"><b>V13M–N</b><p>Map recovery / Reset Map and alternative cached USGS layers to address black-screen failures.</p></div>
+      <div class="bc17-version"><b>V13P–Q</b><p>Zoom experiments; restored the sharper original satellite view as default, leaving USGS optional.</p></div>
+      
+    </section>
+    <section class="bc17-group" aria-label="Upcoming roadmap">
+      <h3>🦌 Coming Soon — Proposed, not active</h3>
+      <ul>
+        <li><b>Man Down — Guardian Safety Watch:</b> First-use setup for three emergency contacts; configurable check-in period, escalating alarm and vibration, “I’m OK” cancellation, and emergency location alerts if reliable delivery can be implemented.</li>
+        <li><b>Hunting-club tools:</b> Opt-in member location sharing, president’s view, and hunt-session permissions.</li>
+        <li><b>Trail cameras:</b> Explore authorized Moultrie, Tactacam, and Bushnell integrations; brand connections are not enabled.</li>
+        <li><b>Offline improvements:</b> Better saved hunting information and tested offline support, depending on device and mapping capabilities.</li>
+      </ul>
+    </section>
+    <section class="bc17-group bc17-danger" aria-label="Safety limitations">
+      <h3>⚠️ Guardian Safety Notice</h3>
+      <p>Man Down is a <b>future proposal only</b>. This test does not monitor for falls or inactivity, vibrate, sound an emergency alarm, call 911, or message contacts. A website cannot be relied on for background detection with a locked phone, and any emergency alert service will require additional engineering, permission and testing. Use established emergency communication methods when hunting alone.</p>
+    </section>
+    <button type="button" class="bc15-btn" id="bc17HistoryDone" style="width:100%">← Back to Buck Command</button>
+  </div>
+</dialog>
+<script id="bc17-version-history-roadmap-test">
+(function(){
+  'use strict';
+  const openButton=document.getElementById('bc17HistoryOpen');
+  const dialog=document.getElementById('bc17HistoryDialog');
+  if(!openButton||!dialog||typeof dialog.showModal!=='function')return;
+  const close=()=>{if(dialog.open)dialog.close()};
+  openButton.addEventListener('click',()=>{
+    document.getElementById('bcHub')?.classList.remove('active');
+    dialog.showModal();
+  });
+  document.getElementById('bc17HistoryClose')?.addEventListener('click',close);
+  document.getElementById('bc17HistoryDone')?.addEventListener('click',()=>{
+    close();
+    document.getElementById('bcHub')?.classList.add('active');
+  });
+  dialog.addEventListener('click',(event)=>{if(event.target===dialog)close()});
+})();
+</script>
+
 </body></html>
