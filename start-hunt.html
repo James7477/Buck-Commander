@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buck Command V13S — Start / End Hunt</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#254a34,#0c1c14 80%);color:#f5f2e7;font:15px system-ui,Arial,sans-serif}
+main{max-width:640px;margin:0 auto;padding:16px 13px 60px}.top{text-align:center;padding:12px 0 4px}h1{font-size:27px;margin:4px 0;color:#ffdf9c}h2{font-size:19px;color:#ffdea0;margin:0 0 9px}
+.note{color:#d2dfd4;font-size:13px;line-height:1.5}.warning{background:#562e29;border:1px solid #dc927a;padding:12px;border-radius:13px;line-height:1.5;font-size:13px}
+.box{background:#183527;border:1px solid #698e72;border-radius:16px;padding:15px;margin:14px 0;box-shadow:0 5px 15px #0003}
+label{display:block;margin:12px 0 5px;font-size:13px;color:#ffe0a9;font-weight:750}input,select{width:100%;font:15px system-ui;background:#092015;color:white;padding:11px;border-radius:9px;border:1px solid #75937b}
+.row{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}.row>*{flex:1 1 125px}button,.btn{display:inline-block;cursor:pointer;border:1px solid #b0c39e;background:#345b41;color:white;border-radius:10px;padding:12px;font:800 13px system-ui;text-decoration:none;text-align:center}
+button:focus-visible,.btn:focus-visible{outline:3px solid #ffe59d;outline-offset:2px}.primary{background:#ab622d;border-color:#f5bf7e}.danger{background:#893744;border-color:#e5a0a7}
+.output{background:#103024;border:1px solid #738e75;border-radius:10px;padding:12px;line-height:1.6;white-space:pre-wrap}.overdue{background:#613126;border-color:#ffab7a}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.contact{border-top:1px solid #56735c;padding:10px 0;margin-top:10px}.headlink{color:#ffe0a9}.pill{font-size:12px;background:#355941;border:1px solid #baa27d;border-radius:999px;padding:4px 10px;display:inline-block}
+details>summary{cursor:pointer;color:#ffe0a6;font-weight:800}#contacts[open]>summary{margin-bottom:8px}
+[hidden]{display:none!important}@media(max-width:460px){.cgrid{grid-template-columns:1fr}}
+</style></head><body><main>
+<div class="top"><span class="pill">🦌 V13S · LIVE BETA</span><h1>🚩 Start / End Hunt</h1><p>BUCK COMMAND — GUARDIAN EDITION</p>
+<a class="headlink" href="./index.html">← Back to Buck Command Map</a></div>
+<p class="warning"><b>SAFETY NOTICE:</b> This is a local hunt log — not an emergency alert service. No automatic calls, texts, overdue notifications, or Man Down detection are provided. It may not run in the background. Tell a trusted person your plan before leaving.</p>
+<section id="plan" class="box"><h2>🦌 Plan Your Hunt</h2>
+<label for="hunter">Hunter name</label><input id="hunter" maxlength="75" autocomplete="name" placeholder="Your name">
+<label for="place">Hunting area</label><input id="place" maxlength="120" placeholder="North ridge / hunting club">
+<label for="duration">How long should you be gone?</label><select id="duration"><option value="2">2 hours</option><option value="4" selected>4 hours</option><option value="6">6 hours</option><option value="8">8 hours</option><option value="custom">Choose exact return date/time</option></select>
+<div id="customWrap" hidden><label for="custom">Expected return time</label><input id="custom" type="datetime-local"></div>
+<label style="display:flex;gap:8px;align-items:flex-start"><input style="width:auto;margin-top:3px" type="checkbox" id="useContacts" checked>Include three saved safety contacts in the hunt plan</label>
+<p class="note">If contacts are enabled, fill in all three below before starting. You must send the plan manually.</p>
+<div class="row"><button class="primary" id="start">🚩 Start Hunt</button></div></section>
+<section id="active" class="box" hidden><h2>🟢 Hunt In Progress</h2>
+<div id="status" class="output" role="status" aria-live="polite"></div><p id="times" class="note"></p><p id="gpsStatus" class="note"></p>
+<div class="row"><button id="checkin">✅ I'm OK / Check In</button><button id="plus30">+ 30 min</button><button id="plus60">+ 1 hour</button></div>
+<div class="row"><button id="gps">📍 Save GPS</button><button id="copy">📋 Copy Hunt Plan</button></div>
+<p class="note">Send these texts yourself. Opening your SMS app only creates a draft.</p><div id="textlinks" class="row"></div>
+<div class="row"><button id="end" class="danger">🏁 End Hunt — I'm Back</button></div>
+</section>
+<section id="completed" class="box" hidden><h2>🏁 Last Completed Hunt</h2><p id="doneText" class="note"></p><p class="note">Finished your hunt? You can manually text your contacts that you are back.</p><div id="endTexts" class="row"></div><button id="del">Delete completed hunt</button></section>
+<details id="contacts" class="box" open><summary>👥 My Three Safety Contacts</summary>
+<p class="note">Names and numbers stay in this browser on your device; they are not transmitted to Buck Command. Clearing site storage may erase them.</p>
+<div class="contact"><b>Contact 1</b><label for="n0">Full name</label><input id="n0" maxlength="75" autocomplete="off"><div class="cgrid"><div><label for="p0">Phone</label><input id="p0" type="tel" maxlength="26" autocomplete="off"></div><div><label for="r0">Relationship</label><select id="r0"><option value="">Choose</option><option>Spouse</option><option>Family</option><option>Friend</option><option>Hunting partner</option><option>Other</option></select></div></div></div>
+<div class="contact"><b>Contact 2</b><label for="n1">Full name</label><input id="n1" maxlength="75" autocomplete="off"><div class="cgrid"><div><label for="p1">Phone</label><input id="p1" type="tel" maxlength="26" autocomplete="off"></div><div><label for="r1">Relationship</label><select id="r1"><option value="">Choose</option><option>Spouse</option><option>Family</option><option>Friend</option><option>Hunting partner</option><option>Other</option></select></div></div></div>
+<div class="contact"><b>Contact 3</b><label for="n2">Full name</label><input id="n2" maxlength="75" autocomplete="off"><div class="cgrid"><div><label for="p2">Phone</label><input id="p2" type="tel" maxlength="26" autocomplete="off"></div><div><label for="r2">Relationship</label><select id="r2"><option value="">Choose</option><option>Spouse</option><option>Family</option><option>Friend</option><option>Hunting partner</option><option>Other</option></select></div></div></div>
+<div class="row"><button id="saveContacts">💾 Save Three Contacts</button></div><p id="contactStatus" class="note" role="status"></p>
+</details>
+<section class="box"><h2>🚨 Man Down — Coming Soon</h2><p class="note">Planned: motion monitoring, an escalating warning, I'm OK confirmation, and emergency-contact notifications. None of these are active in this test.</p><a class="btn danger" href="tel:911">☎ Call 911</a></section>
+</main>
+<script>
+(function(){
+'use strict';
+const el=id=>document.getElementById(id),H='bc-v13s-live-hunt-v1',C='bc-v13s-live-contacts-v1';
+function read(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(e){return null}}
+function store(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}
+let hunt=read(H),contacts=read(C)||[];
+const fmt=t=>new Date(t).toLocaleString();
+const phone=x=>String(x||'').replace(/[^\d+]/g,'');
+const remaining=ms=>{const m=Math.ceil(Math.abs(ms)/60000),h=Math.floor(m/60);return(h?h+'h ':'')+(m%60)+'m'};
+function vals(){return [0,1,2].map(i=>({name:el('n'+i).value.trim(),phone:phone(el('p'+i).value),relation:el('r'+i).value}))}
+function valid(v){return v.length===3&&v.every(x=>x.name&&/^\+?\d{7,16}$/.test(x.phone)&&x.relation)&&new Set(v.map(x=>x.phone)).size===3}
+contacts.forEach((x,i)=>{if(i>2)return;el('n'+i).value=x.name||'';el('p'+i).value=x.phone||'';el('r'+i).value=x.relation||''});
+el('saveContacts').onclick=()=>{let v=vals();if(!valid(v)){el('contactStatus').textContent='Please enter 3 different valid phone numbers, names, and relationships.';return}if(store(C,v)){contacts=v;el('contactStatus').textContent='✓ Contacts saved on this device.'}else el('contactStatus').textContent='Could not save contacts on this device.'};
+el('duration').onchange=()=>el('customWrap').hidden=el('duration').value!=='custom';
+function message(action){if(!hunt)return'';let a=['BUCK COMMAND — '+action,'Hunter: '+hunt.name,'Area: '+(hunt.place||'Not entered'),'Start: '+fmt(hunt.start),'Expected return: '+fmt(hunt.returnAt),'Last check-in: '+fmt(hunt.lastCheckin||hunt.start)];if(hunt.gps){a.push('GPS: '+hunt.gps.lat.toFixed(6)+', '+hunt.gps.lon.toFixed(6));a.push('Map: https://www.google.com/maps?q='+hunt.gps.lat.toFixed(6)+','+hunt.gps.lon.toFixed(6))}a.push('Manual message — not an automatic safety notification');return a.join('\n')}
+function render(){let active=hunt&&!hunt.end,done=hunt&&hunt.end;el('plan').hidden=!!active;el('active').hidden=!active;el('completed').hidden=!done;if(active){let delta=hunt.returnAt-Date.now();el('status').classList.toggle('overdue',delta<=0);el('status').textContent=delta>0?'Expected return in '+remaining(delta):'⚠️ Return time has passed by '+remaining(delta)+'. Tell your safety contacts yourself.';el('times').textContent='Started '+fmt(hunt.start)+' · Expected return '+fmt(hunt.returnAt)+' · Last check-in '+fmt(hunt.lastCheckin);el('gpsStatus').textContent=hunt.gps?'Last saved GPS: '+hunt.gps.lat.toFixed(6)+', '+hunt.gps.lon.toFixed(6):'No GPS saved yet.';let box=el('textlinks');box.replaceChildren();(hunt.contacts||[]).forEach(c=>{let a=document.createElement('a');a.className='btn';a.textContent='✉ Text '+c.name;a.href='sms:'+c.phone+'?body='+encodeURIComponent(message('HUNT STATUS UPDATE'));box.append(a)})}if(done){el('doneText').textContent=hunt.name+' — '+(hunt.place||'Hunt')+' · Started '+fmt(hunt.start)+' · Ended '+fmt(hunt.end);let box=el('endTexts');box.replaceChildren();(hunt.contacts||[]).forEach(c=>{let a=document.createElement('a');a.className='btn';a.textContent='✉ Tell '+c.name+' I am back';a.href='sms:'+c.phone+'?body='+encodeURIComponent(message('HUNT ENDED — I AM BACK')+'\nHunt ended: '+fmt(hunt.end));box.append(a)})}}
+el('start').onclick=()=>{if(hunt&&!hunt.end){alert('End your current hunt first.');return}let name=el('hunter').value.trim();if(!name){alert('Enter a hunter name.');return}let now=Date.now(),dur=el('duration').value,ret=dur==='custom'?new Date(el('custom').value).getTime():now+Number(dur)*3600000;if(!Number.isFinite(ret)||ret<=now+120000){alert('Return time must be more than 2 minutes in the future.');return}let cs=[];if(el('useContacts').checked){cs=vals();if(!valid(cs)){alert('Complete all 3 safety contacts below before starting.');el('contacts').open=true;el('contacts').scrollIntoView();return}if(!store(C,cs)){alert('Could not save your contacts. Hunt not started.');return}contacts=cs}
+const next={name,place:el('place').value.trim(),start:now,returnAt:ret,lastCheckin:now,contacts:cs,end:null,gps:null};if(!store(H,next)){alert('Could not save hunt on this phone.');return}hunt=next;render();alert('Hunt started locally. Text your hunt plan to contacts now; nobody is notified automatically.')};
+function change(fn){if(!hunt||hunt.end)return;let next={...hunt};fn(next);if(store(H,next)){hunt=next;render()}else alert('Could not save update.')}
+el('checkin').onclick=()=>change(x=>x.lastCheckin=Date.now());el('plus30').onclick=()=>change(x=>x.returnAt+=1800000);el('plus60').onclick=()=>change(x=>x.returnAt+=3600000);
+el('end').onclick=()=>{if(!confirm('End this hunt? Contacts will NOT be notified automatically.'))return;change(x=>x.end=Date.now());alert('Hunt ended. Tell your contacts you are back.')};
+el('gps').onclick=()=>{if(!navigator.geolocation){alert('GPS not available.');return}el('gpsStatus').textContent='Requesting location permission...';navigator.geolocation.getCurrentPosition(p=>change(x=>x.gps={lat:p.coords.latitude,lon:p.coords.longitude,saved:Date.now()}),e=>el('gpsStatus').textContent='GPS unavailable: '+e.message,{enableHighAccuracy:true,timeout:20000,maximumAge:0})};
+el('copy').onclick=async()=>{let value=message('HUNT PLAN');try{await navigator.clipboard.writeText(value);alert('Plan copied. Paste into a message and send it yourself.')}catch(e){prompt('Copy your hunt plan:',value)}};
+el('del').onclick=()=>{if(!hunt||!hunt.end||!confirm('Delete completed hunt record?'))return;try{localStorage.removeItem(H);hunt=null;render()}catch(e){alert('Cannot delete record.')}};
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});window.addEventListener('pageshow',render);window.addEventListener('focus',render);setInterval(()=>{if(!document.hidden)render()},30000);render();
+})();
+</script></body></html>
