@@ -1069,7 +1069,7 @@ el('parcel').onclick=async()=>{
 </script>
 
 <dialog class="bc13-dialog" id="bc13Add" aria-labelledby="bc13AddTitle"><div class="bc13-inner"><div class="bc13-head"><div><h2 id="bc13AddTitle">📍 Add to Your Map</h2><p>What would you like to add to your hunting property?</p></div><button class="bc13-close" type="button" data-bc13-close="bc13Add" aria-label="Close">✕</button></div><div id="bc13MarkerPicks" class="bc13-picks"></div><p class="bc13-note">Open or save a property before placing a marker. The original marker forms and saved records are unchanged.</p></div></dialog>
-<dialog class="bc13-dialog" id="bc13Weather" aria-labelledby="bc13WeatherTitle"><div class="bc13-inner"><div class="bc13-head"><div><h2 id="bc13WeatherTitle">🌦 Hunt Weather</h2><p>Live conditions and a three-day forecast for your chosen hunting location.</p></div><button class="bc13-close" type="button" data-bc13-close="bc13Weather" aria-label="Close">✕</button></div><div class="bc13-actions"><button id="bc13WeatherPin" class="bc13-btn" type="button">📍 Selected Map Point</button><button id="bc13WeatherGPS" class="bc13-btn" type="button">📡 Phone GPS</button><button id="bc13WeatherRefresh" class="bc13-btn" type="button">⟳ Refresh</button></div><p id="bc13WeatherStatus" class="bc13-note" aria-live="polite">Select an address or location on the map, or use Phone GPS.</p><div id="bc13WeatherStats" class="bc13-statgrid"></div><h3 id="bc13DaysTitle" class="bc13-sectiontitle" hidden>Next 3 Days</h3><div id="bc13WeatherDays" class="bc13-days"></div><p class="bc13-note">Weather model data: <a href="https://open-meteo.com/" style="color:#ffe4ab" target="_blank" rel="noopener noreferrer">Open-Meteo</a> and its providers (CC BY 4.0). Needs internet. Weather at a particular stand may vary; use official alerts for dangerous conditions. GPS permission is requested only when you press Phone GPS.</p></div></dialog>
+<dialog class="bc13-dialog" id="bc13Weather" aria-labelledby="bc13WeatherTitle"><div class="bc13-inner"><div class="bc13-head"><div><h2 id="bc13WeatherTitle">🌦 Hunt Weather</h2><p>Live conditions and a three-day forecast for your chosen hunting location.</p></div><button class="bc13-close" type="button" data-bc13-close="bc13Weather" aria-label="Close">✕</button></div><div class="bc13-actions"><button id="bc13WeatherPin" class="bc13-btn" type="button">🔎 Search Address</button><button id="bc13WeatherGPS" class="bc13-btn" type="button">📡 Phone GPS</button><button id="bc13WeatherRefresh" class="bc13-btn" type="button">⟳ Refresh</button></div><div id="bc13WeatherSearchBox" hidden style="margin:12px 0;padding:12px;border:1px solid #7d9e84;border-radius:12px;background:#142a22"><label for="bc13WeatherAddress" style="display:block;margin:0 0 6px;color:#ffe4ab;font-weight:700">Enter a hunting address, city, or ZIP code</label><input id="bc13WeatherAddress" type="search" autocomplete="street-address" placeholder="Example: Mount Vernon, AL 36560" style="width:100%;font-size:16px"><button id="bc13WeatherFind" class="bc13-btn" type="button" style="margin-top:9px;width:100%">🔎 Find Weather for Address</button></div><p id="bc13WeatherStatus" class="bc13-note" aria-live="polite">Select an address or location on the map, or use Phone GPS.</p><div id="bc13WeatherStats" class="bc13-statgrid"></div><h3 id="bc13DaysTitle" class="bc13-sectiontitle" hidden>Next 3 Days</h3><div id="bc13WeatherDays" class="bc13-days"></div><p class="bc13-note">Weather model data: <a href="https://open-meteo.com/" style="color:#ffe4ab" target="_blank" rel="noopener noreferrer">Open-Meteo</a> and its providers (CC BY 4.0). Needs internet. Weather at a particular stand may vary; use official alerts for dangerous conditions. GPS permission is requested only when you press Phone GPS.</p></div></dialog>
 <dialog class="bc13-dialog" id="bc13Journal" aria-labelledby="bc13JournalTitle"><div class="bc13-inner"><div class="bc13-head"><div><h2 id="bc13JournalTitle">📸 Hunt Journal Camera</h2><p>Take a photo on your phone and save it to your hunting journal.</p></div><button class="bc13-close" type="button" data-bc13-close="bc13Journal" aria-label="Close">✕</button></div><div class="bc13-actions"><button id="bc13TakePhoto" class="bc13-btn" type="button">📷 Take / Choose Photo</button><button id="bc13SavePhoto" class="bc13-btn" type="button">💾 Save Journal Entry</button></div><input id="bc13File" type="file" accept="image/*" capture="environment" hidden><img id="bc13Preview" hidden alt="Selected photo preview"><label for="bc13Note" style="display:block;color:#ffefc4;margin:14px 0 6px">Photo / Hunt Notes</label><textarea id="bc13Note" maxlength="1000" placeholder="What did you see? Where? When? Hunting conditions…"></textarea><p id="bc13JournalStatus" class="bc13-note" aria-live="polite">Photos and notes are saved on this device only. They don't sync to other phones. Use Download Photo for photos you want to keep permanently.</p><h3 class="bc13-sectiontitle">Saved Journal Photos</h3><div class="bc13-actions"><button type="button" id="bc13Reload" class="bc13-btn">↻ Refresh Journal</button></div><div id="bc13JournalList"></div></div></dialog>
 <dialog class="bc13-dialog" id="bc13More" aria-labelledby="bc13MoreTitle"><div class="bc13-inner"><div class="bc13-head"><div><h2 id="bc13MoreTitle">🦌 Hunt Companion</h2><p>Useful extras without repeating map search or markers.</p></div><button class="bc13-close" type="button" data-bc13-close="bc13More" aria-label="Close">✕</button></div><div id="bc13MoreChoices"><button type="button" id="bc13MoreJournal" class="bc13-btn">📔 Open Hunt Journal</button><button type="button" id="bc13MoreBackup" class="bc13-btn">💾 Backup Hunting Properties</button><button type="button" id="bc13MoreRestore" class="bc13-btn">📂 Restore Property Backup</button><button type="button" id="bc13MoreDiagnostic" class="bc13-btn">🩺 Parcel Diagnostics</button><button type="button" id="bc13MoreHelp" class="bc13-btn">❓ Help / Features</button></div><p class="bc13-note">Property backups do not include journal photos. Download each journal photo separately to keep a copy outside the app.</p></div></dialog>
 
@@ -1104,7 +1104,7 @@ weatherBtn.addEventListener('click',()=>{
  open('bc13Weather');
  const lat=Number($('lat')?.value),lon=Number($('lon')?.value);
  if($('lat')?.value.trim() && $('lon')?.value.trim() && Math.abs(lat)<=90&&Math.abs(lon)<=180)loadWeather({lat,lon,name:'Selected map location'});
- else $('bc13WeatherStatus').textContent='Search an address or select a map point first, or tap Phone GPS.';
+ else $('bc13WeatherStatus').textContent='Choose Search Address or Phone GPS to load the weather.';
 });
 const existingMore=$('mapMore');
 if(existingMore)existingMore.onclick=()=>open('bc13More');
@@ -1181,17 +1181,70 @@ async function loadWeather(spot){
  }catch(err){if(seq===weatherRequest&&$('bc13Weather').open)stat.textContent='Weather unavailable: '+(err.name==='AbortError'?'Connection timed out or request replaced':err.message)+'. Try again when online.';}
  finally{clearTimeout(timeout);}
 }
-$('bc13WeatherPin').onclick=()=>{
- const latS=$('lat')?.value.trim(),lonS=$('lon')?.value.trim(),lat=Number(latS),lon=Number(lonS);
- if(!latS||!lonS||!Number.isFinite(lat)||!Number.isFinite(lon)||Math.abs(lat)>90||Math.abs(lon)>180){stat.textContent='No selected map location. Search an address first, or use Phone GPS.';return;}
- loadWeather({lat,lon,name:'Selected map location'});
+// WEATHER LOCATION V13T: address lookup and more resilient GPS. Original map tools are unchanged.
+const weatherSearchBox=$('bc13WeatherSearchBox'),weatherAddress=$('bc13WeatherAddress'),weatherFind=$('bc13WeatherFind');
+let addressRequest=0,gpsRequest=0;
+function showWeatherSearch(message){
+ weatherSearchBox.hidden=false;
+ if(!weatherAddress.value.trim()&&$('street')?.value.trim())weatherAddress.value=$('street').value.trim();
+ if(message)stat.textContent=message;
+ weatherAddress.focus();
+}
+$('bc13WeatherPin').onclick=()=>showWeatherSearch('Enter a hunting address, city, or ZIP, then tap Find Weather for Address.');
+async function findAddressWeather(){
+ const q=weatherAddress.value.trim();
+ if(q.length<3){stat.textContent='Enter an address, city, or ZIP code to search.';weatherAddress.focus();return;}
+ const seq=++addressRequest,controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),15000);
+ weatherFind.disabled=true;stat.textContent='Finding weather location: '+q+'…';
+ try{
+  const url=new URL('https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates');
+  url.search=new URLSearchParams({SingleLine:q,f:'json',outFields:'Match_addr,Addr_type,City,Region,Postal',maxLocations:'5',forStorage:'false',outSR:'4326'}).toString();
+  const response=await fetch(url,{signal:controller.signal});
+  if(!response.ok)throw Error('Address service error '+response.status);
+  const data=await response.json();
+  if(data.error)throw Error(data.error.message||'Address search unavailable');
+  if(seq!==addressRequest)return;
+  const match=(data.candidates||[]).find(c=>Number(c.score)>=65&&Number.isFinite(Number(c.location?.x))&&Number.isFinite(Number(c.location?.y)));
+  if(!match){stat.textContent='No reliable location found. Try a full street address, city and state, or ZIP code.';return;}
+  const spot={lat:Number(match.location.y),lon:Number(match.location.x),name:match.address||q};
+  if(Math.abs(spot.lat)>90||Math.abs(spot.lon)>180)throw Error('Invalid location returned');
+  loadWeather(spot);
+ }catch(err){if(seq===addressRequest)stat.textContent='Address search failed: '+(err.name==='AbortError'?'connection timed out':err.message)+'. Check your internet connection or try Phone GPS.';}
+ finally{clearTimeout(timeout);if(seq===addressRequest)weatherFind.disabled=false;}
+}
+weatherFind.onclick=findAddressWeather;
+weatherAddress.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();findAddressWeather();}});
+const gpsWeatherButton=$('bc13WeatherGPS');
+gpsWeatherButton.onclick=()=>{
+ const seq=++gpsRequest;
+ if(!navigator.geolocation){stat.textContent='GPS is unavailable in this browser. Tap Search Address instead.';return;}
+ if(!window.isSecureContext){stat.textContent='Phone GPS needs a secure HTTPS connection. Use the published Buck Command link, or tap Search Address.';return;}
+ gpsWeatherButton.disabled=true;
+ stat.textContent='Requesting phone location. Make sure Location is enabled and allow this website to use it…';
+ const done=()=>{if(seq===gpsRequest)gpsWeatherButton.disabled=false;};
+ const found=pos=>{
+  if(seq!==gpsRequest)return;
+  done();
+  const lat=Number(pos.coords?.latitude),lon=Number(pos.coords?.longitude);
+  if(!Number.isFinite(lat)||!Number.isFinite(lon)){showWeatherSearch('Phone GPS returned an invalid location. Search an address instead.');return;}
+  loadWeather({lat,lon,name:'Phone GPS (accuracy ±'+Math.round(pos.coords.accuracy||0)+' m)'});
+ };
+ const failed=err=>{
+  if(seq!==gpsRequest)return;
+  done();
+  stat.textContent=err?.code===1?'Location permission was denied. Allow location for this site in browser settings, or use Search Address.':err?.code===3?'Phone GPS timed out. Turn on Location services, try outdoors or near a window, or use Search Address.':'Could not determine phone location. Check Location services and internet, or use Search Address.';
+ };
+ try{
+  navigator.geolocation.getCurrentPosition(found,err=>{
+   if(seq!==gpsRequest)return;
+   if(err?.code===1){failed(err);return;}
+   stat.textContent='GPS is taking longer than expected. Trying a second location method…';
+   try{navigator.geolocation.getCurrentPosition(found,failed,{enableHighAccuracy:true,timeout:20000,maximumAge:60000});}
+   catch(e){failed({code:2});}
+  },{enableHighAccuracy:false,timeout:12000,maximumAge:60000});
+ }catch(e){failed({code:2});}
 };
-$('bc13WeatherGPS').onclick=()=>{
- if(!navigator.geolocation){stat.textContent='GPS unavailable in this browser.';return;}
- stat.textContent='Requesting phone GPS permission…';
- navigator.geolocation.getCurrentPosition(pos=>loadWeather({lat:pos.coords.latitude,lon:pos.coords.longitude,name:'Phone GPS'}),err=>{stat.textContent='GPS unavailable: '+err.message;},{enableHighAccuracy:true,timeout:15000,maximumAge:0});
-};
-$('bc13WeatherRefresh').onclick=()=>weatherSpot?loadWeather(weatherSpot):$('bc13WeatherPin').click();
+$('bc13WeatherRefresh').onclick=()=>weatherSpot?loadWeather(weatherSpot):showWeatherSearch('Choose a location to load its weather.');
 // JOURNAL CAMERA: no server, location sharing, or recurring GPS; photos stay in browser IndexedDB.
 const fileInput=$('bc13File'),preview=$('bc13Preview'),note=$('bc13Note'),jStatus=$('bc13JournalStatus'),jList=$('bc13JournalList');
 let previewURL=null,photoFile=null,entryURLs=[];
