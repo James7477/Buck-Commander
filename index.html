@@ -388,7 +388,7 @@ body.bc13-modal-open #mapToolbar,body.bc13-modal-open .overlay,body.bc13-modal-o
 <button id="bcHubOpen" type="button" aria-label="Open Buck Command main menu">☰ Main Menu</button>
 <div id="bcHub" role="dialog" aria-modal="true" aria-label="Buck Command main menu">
  <div id="bcHubContent">
-  <div class="bc-head"><div><b style="font-size:23px;color:#f1ede0">BUCK <span style="color:#dc5261">COMMAND</span></b><div class="bc-note">Choose what you want to do · FREE BETA TESTING</div><div class="bc17-versionline">🦌 V13T LIVE <span>· Free Beta</span></div><div class="bc-holiday-wish" aria-label="Christmas greeting">❄️ 🎄 Merry Christmas from Buck Command! 🦌 ❄️</div></div><button id="bcHubClose" type="button">✕ Close</button></div>
+  <div class="bc-head"><div><b style="font-size:23px;color:#f1ede0">BUCK <span style="color:#dc5261">COMMAND</span></b><div class="bc-note">Choose what you want to do · FREE BETA TESTING</div><div class="bc17-versionline">🦌 V13U LIVE <span>· Free Beta</span></div><div class="bc-holiday-wish" aria-label="Christmas greeting">❄️ 🎄 Merry Christmas from Buck Command! 🦌 ❄️</div></div><button id="bcHubClose" type="button">✕ Close</button></div>
   <button id="bcFeatureGuide" type="button" style="width:100%;display:block;box-sizing:border-box;margin:16px 0 0;padding:15px 12px;border:1px solid #d8b767;border-radius:13px;background:#e0b849;color:#14291f;font-size:16px;font-weight:900;text-align:center;cursor:pointer">📖 CLICK TO SEE FEATURES</button>
    <a id="bc18Menu" class="bc18-launch" href="./start-hunt.html">🚩 START HUNT / END HUNT<span>Plan return time · Check in · Share with contacts</span></a>
 <button id="bc17HistoryOpen" class="bc17-history-button" type="button">📜 VERSION HISTORY &amp; COMING SOON <span>See what's live, in testing, and planned</span></button>
@@ -923,6 +923,42 @@ el('parcel').onclick=async()=>{
   status('Parcel found:\n'+parcelAttrib(one.attributes||{})+'\nApproximate tax boundaries only.');
  }catch(e){status('Parcel lookup failed: '+e.message)}
 };
+
+ // V13U: private waypoint pins in their own map layer. Keep existing markers untouched.
+ const bcWpLayer=new GraphicsLayer({title:'My private waypoints',visible:true});
+ map.add(bcWpLayer);
+ window.buckWaypointsBridge={
+   getSelection:function(){
+     const p=locationPoint||view?.center;
+     return p&&Number.isFinite(p.latitude)&&Number.isFinite(p.longitude)?{lat:p.latitude,lon:p.longitude}:null;
+   },
+   onTap:function(callback){
+     for(const v of [sceneView,flatView])v.on('click',function(e){
+       if(v!==view||drawing||markerPlacing||!e.mapPoint)return;
+       const p=e.mapPoint;
+       if(Number.isFinite(p.latitude)&&Number.isFinite(p.longitude))callback({lat:p.latitude,lon:p.longitude});
+     });
+   },
+   goTo:function(lat,lon,name){
+     if(!view)return;
+     view.goTo({center:[lon,lat],zoom:Math.max(15,Math.min(17,view.zoom||15))},{duration:550})
+       .then(()=>status('Waypoint: '+name+' · '+lat.toFixed(5)+', '+lon.toFixed(5)))
+       .catch(e=>status('Could not show waypoint: '+e.message));
+   },
+   refresh:function(points,shown){
+     bcWpLayer.removeAll();bcWpLayer.visible=Boolean(shown);
+     if(!shown)return;
+     const graphics=[];
+     for(const p of (Array.isArray(points)?points:[]).slice(0,750)){
+       if(!Number.isFinite(p.lat)||!Number.isFinite(p.lon))continue;
+       const geometry={type:'point',longitude:p.lon,latitude:p.lat};
+       graphics.push(new Graphic({geometry,symbol:{type:'simple-marker',style:'diamond',size:16,color:'#fbd36a',outline:{color:'#1a2f21',width:2}},attributes:{name:p.name||'Waypoint'}}));
+       graphics.push(new Graphic({geometry,symbol:{type:'text',text:String(p.name||'Waypoint').slice(0,24),color:'#fff8dd',haloColor:'#12271b',haloSize:1.5,yoffset:20,font:{size:11,weight:'bold'}}}));
+     }
+     if(graphics.length)bcWpLayer.addMany(graphics);
+   }
+ };
+ window.dispatchEvent(new Event('buck-waypoint-ready'));
 });})();
 </script>
 <script>
@@ -1647,4 +1683,5 @@ $('bc15OpenFeedback').onclick=()=>window.open(feedbackURL,'_blank','noopener,nor
 })();
 </script>
 
+<script defer src="./waypoints.js?v=20261103"></script>
 </body></html>
